@@ -18,5 +18,6 @@ module tb_reg_load.sv ();
 		load = 0; #5;
 		a = 'h0002; load = 1; #5;
 		load = 0; #5;
+		$stop;
 	end
 endmodule
