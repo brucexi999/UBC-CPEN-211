@@ -1,4 +1,4 @@
-module tb_reg_load.sv ();
+module tb_reg_load ();
 	logic [15:0] a, b;
 	logic load, clk;
 	

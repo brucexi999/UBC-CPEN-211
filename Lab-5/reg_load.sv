@@ -7,7 +7,7 @@ module reg_load (a, b, load, clk);
 	
 	always @ (posedge clk) begin
 		if (load) 
-			b <= a
+			b <= a;
 	end
 
 endmodule
