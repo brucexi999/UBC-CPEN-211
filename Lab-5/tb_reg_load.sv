@@ -13,8 +13,8 @@ module tb_reg_load ();
 	end
 	
 	initial begin
-		load = 0; a = 'h0001; #5;
-		load = 1; #5;
+		load = 1; a = 'h0001; #5;
+		load = 0; #5;
 		load = 0; #5;
 		a = 'h0002; load = 1; #5;
 		load = 0; #5;

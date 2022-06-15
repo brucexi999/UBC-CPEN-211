@@ -1,0 +1,76 @@
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv failed with 1 errors.
+# Compile of tb_regfile.sv failed with 2 errors.
+# 8 compiles, 2 failed with 3 errors.
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of tb_regfile.sv was successful.
+# 8 compiles, 0 failed with no errors.
+vsim -gui work.tb_regfile
+# vsim -gui work.tb_regfile 
+# Start time: 15:09:50 on Jun 15,2022
+# Loading sv_std.std
+# Loading work.tb_regfile
+# Loading work.regfile
+# Loading work.decoder
+# ** Error: (vsim-3033) D:/UBC-CPEN-211/Lab-5/regfile.sv(20): Instantiation of 'mum_8in' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_regfile/dut File: D:/UBC-CPEN-211/Lab-5/regfile.sv
+#         Searched libraries:
+#             D:/UBC-CPEN-211/Lab-5/work
+# Error loading design
+# End time: 15:09:51 on Jun 15,2022, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of tb_regfile.sv was successful.
+# 8 compiles, 0 failed with no errors.
+vsim -gui work.tb_regfile
+# vsim -gui work.tb_regfile 
+# Start time: 15:10:42 on Jun 15,2022
+# Loading sv_std.std
+# Loading work.tb_regfile
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.reg_load
+add wave -position insertpoint  \
+sim:/tb_regfile/dut/data_in \
+sim:/tb_regfile/dut/writenum \
+sim:/tb_regfile/dut/readnum \
+sim:/tb_regfile/dut/write \
+sim:/tb_regfile/dut/clk \
+sim:/tb_regfile/dut/data_out \
+sim:/tb_regfile/dut/write_dec_out \
+sim:/tb_regfile/dut/read_dec_out \
+sim:/tb_regfile/dut/load \
+sim:/tb_regfile/dut/reg_out
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Bruce  Hostname: BRUCE_X  ProcessID: 8384
+#           Attempting to use alternate WLF file "./wlftb9w5sc".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftb9w5sc
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-5/tb_regfile.sv(29)
+#    Time: 200 ps  Iteration: 0  Instance: /tb_regfile
+# Break in Module tb_regfile at D:/UBC-CPEN-211/Lab-5/tb_regfile.sv line 29
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"

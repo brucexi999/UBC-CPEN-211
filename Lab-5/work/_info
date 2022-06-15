@@ -1,0 +1,202 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Bruce/Documents/GitHub/lab-3-memories-from-room-40-brucexi999/task5
+vdecoder
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1655331033
+!i10b 1
+!s100 lT1MH=9M`Cb@=Z:Vn[iHK3
+I`alT2Y8`h9;omZ2eHgB4B1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 decoder_sv_unit
+S1
+Z3 dD:/UBC-CPEN-211/Lab-5
+Z4 w1655143707
+8D:/UBC-CPEN-211/Lab-5/decoder.sv
+FD:/UBC-CPEN-211/Lab-5/decoder.sv
+L0 1
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1655331033.000000
+!s107 D:/UBC-CPEN-211/Lab-5/decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/decoder.sv|
+!i113 1
+Z7 o-work work -sv
+Z8 tCvgOpt 0
+vmux_8in
+R0
+R1
+!i10b 1
+!s100 Tb^HKk=J2RVSL2BY=hWJO3
+IobS9A:f0XYO0N[8^a`He[2
+R2
+!s105 mux_8in_sv_unit
+S1
+R3
+w1655239138
+8D:/UBC-CPEN-211/Lab-5/mux_8in.sv
+FD:/UBC-CPEN-211/Lab-5/mux_8in.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/mux_8in.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/mux_8in.sv|
+!i113 1
+R7
+R8
+vreg_load
+R0
+R1
+!i10b 1
+!s100 3RHJGXGFCCF>P=H6iA>@Q2
+I9Q:VKH7DW:X3QDF7RPN]D1
+R2
+!s105 reg_load_sv_unit
+S1
+R3
+w1655146626
+8D:/UBC-CPEN-211/Lab-5/reg_load.sv
+FD:/UBC-CPEN-211/Lab-5/reg_load.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/reg_load.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/reg_load.sv|
+!i113 1
+R7
+R8
+vregfile
+R0
+R1
+!i10b 1
+!s100 zC;T;AA:XVkgfTL;][ML61
+ILEVj?eIg[QCeHD0Ee0bEX3
+R2
+!s105 regfile_sv_unit
+S1
+R3
+w1655331030
+8D:/UBC-CPEN-211/Lab-5/regfile.sv
+FD:/UBC-CPEN-211/Lab-5/regfile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/regfile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/regfile.sv|
+!i113 1
+R7
+R8
+vtb_decoder
+R0
+R1
+!i10b 1
+!s100 o172R5Cm?0iQTmmSDUWiW2
+ISjiSUa>Tg=H>G<H`Cmf5o0
+R2
+!s105 tb_decoder_sv_unit
+S1
+R3
+R4
+8D:/UBC-CPEN-211/Lab-5/tb_decoder.sv
+FD:/UBC-CPEN-211/Lab-5/tb_decoder.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/tb_decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/tb_decoder.sv|
+!i113 1
+R7
+R8
+vtb_mux_8in
+R0
+R1
+!i10b 1
+!s100 YV^Jm8W3J9Iio:3ZcM_?L1
+II>j]n`5>ii3Y?HA04Czi11
+R2
+!s105 tb_mux_8in_sv_unit
+S1
+R3
+w1655238518
+8D:/UBC-CPEN-211/Lab-5/tb_mux_8in.sv
+FD:/UBC-CPEN-211/Lab-5/tb_mux_8in.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/tb_mux_8in.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/tb_mux_8in.sv|
+!i113 1
+R7
+R8
+vtb_reg_load
+R0
+R1
+!i10b 1
+!s100 6lXOmbDNCj<<U3XT^X=ZL2
+I1jW82CV2BYV^Ka61VVIh]3
+R2
+!s105 tb_reg_load_sv_unit
+S1
+R3
+w1655146738
+8D:/UBC-CPEN-211/Lab-5/tb_reg_load.sv
+FD:/UBC-CPEN-211/Lab-5/tb_reg_load.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 D:/UBC-CPEN-211/Lab-5/tb_reg_load.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/tb_reg_load.sv|
+!i113 1
+R7
+R8
+vtb_regfile
+R0
+!s110 1655331034
+!i10b 1
+!s100 6n_o`]bC^7F2OT5zQ<m>O3
+IG9B6GP[QXn4G3zQHVOQj[2
+R2
+!s105 tb_regfile_sv_unit
+S1
+R3
+w1655330977
+8D:/UBC-CPEN-211/Lab-5/tb_regfile.sv
+FD:/UBC-CPEN-211/Lab-5/tb_regfile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1655331034.000000
+!s107 D:/UBC-CPEN-211/Lab-5/tb_regfile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-5/tb_regfile.sv|
+!i113 1
+R7
+R8
