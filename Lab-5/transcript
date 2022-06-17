@@ -74,3 +74,46 @@ run -all
 # Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
 # Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
 # Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+quit -sim
+# End time: 21:39:51 on Jun 16,2022, Elapsed time: 30:29:09
+# Errors: 5, Warnings: 3
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of tb_regfile.sv was successful.
+# Compile of alu.sv failed with 7 errors.
+# Compile of tb_alu.sv was successful.
+# 10 compiles, 1 failed with 7 errors.
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of tb_regfile.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of tb_alu.sv was successful.
+# 10 compiles, 0 failed with no errors.
+vsim -gui work.tb_alu
+# vsim -gui work.tb_alu 
+# Start time: 21:41:18 on Jun 16,2022
+# Loading sv_std.std
+# Loading work.tb_alu
+# Loading work.alu
+add wave -position insertpoint  \
+sim:/tb_alu/Ain \
+sim:/tb_alu/Bin \
+sim:/tb_alu/out \
+sim:/tb_alu/ALUop \
+sim:/tb_alu/Z
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Bruce  Hostname: BRUCE_X  ProcessID: 8384
+#           Attempting to use alternate WLF file "./wlftn16dss".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftn16dss
+run -all
