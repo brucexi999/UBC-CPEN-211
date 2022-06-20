@@ -164,7 +164,7 @@ endmodule
 // code will not work with the DE1-SoC because the order of segments used in
 // the book is not the same as on the DE1-SoC (see comments below).
 
-module sseg(in,segs);
+module sseg(in,hex);
 	input [3:0] in;
 	output logic [6:0] hex;
 	
@@ -186,7 +186,7 @@ module sseg(in,segs);
 			'hd: hex = 7'b0100001;
 			'he: hex = 7'b0000110;
 			'hf: hex = 7'b0001110;
-			default: hex = 7'b1111111;ase
+			default: hex = 7'b1111111;
 		endcase 
 	end
 

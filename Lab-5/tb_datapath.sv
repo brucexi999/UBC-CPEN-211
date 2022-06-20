@@ -24,10 +24,6 @@ module tb_datapath ();
 		asel = 0; shift = 2'b01; bsel = 0; ALUop = 2'b0; loadc = 1; loads = 1; loada = 0; #10; 
 		vsel = 0; write = 1; writenum = 3'b010; #10; 
 		write = 0; readnum = 3'b010; #10; 
-		
-	
-	
-	
 		$stop;
 	end
 endmodule
