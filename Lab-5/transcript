@@ -9,8 +9,10 @@
 # Compile of alu.sv was successful.
 # Compile of tb_alu.sv was successful.
 # Compile of tb_shifter.sv was successful.
-# Compile of shifter.sv failed with 5 errors.
-# 12 compiles, 1 failed with 5 errors.
+# Compile of shifter.sv was successful.
+# Compile of tb_datapath.sv failed with 3 errors.
+# Compile of datapath.sv was successful.
+# 14 compiles, 1 failed with 3 errors.
 # Compile of tb_decoder.sv was successful.
 # Compile of decoder.sv was successful.
 # Compile of tb_reg_load.sv was successful.
@@ -23,49 +25,71 @@
 # Compile of tb_alu.sv was successful.
 # Compile of tb_shifter.sv was successful.
 # Compile of shifter.sv was successful.
-# 12 compiles, 0 failed with no errors.
-vsim -gui work.tb_shifter
-# vsim -gui work.tb_shifter 
-# Start time: 22:26:52 on Jun 18,2022
+# Compile of tb_datapath.sv failed with 3 errors.
+# Compile of datapath.sv was successful.
+# 14 compiles, 1 failed with 3 errors.
+# Compile of tb_decoder.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of tb_reg_load.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of tb_mux_8in.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of tb_regfile.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of tb_alu.sv was successful.
+# Compile of tb_shifter.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of datapath.sv was successful.
+# 14 compiles, 0 failed with no errors.
+vsim -gui work.tb_datapath
+# vsim -gui work.tb_datapath 
+# Start time: 17:27:57 on Jun 19,2022
 # Loading sv_std.std
-# Loading work.tb_shifter
+# Loading work.tb_datapath
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.reg_load
 # Loading work.shifter
+# Loading work.alu
 add wave -position insertpoint  \
-sim:/tb_shifter/in \
-sim:/tb_shifter/shift \
-sim:/tb_shifter/sout
+sim:/tb_datapath/dut/clk \
+sim:/tb_datapath/dut/readnum \
+sim:/tb_datapath/dut/writenum \
+sim:/tb_datapath/dut/vsel \
+sim:/tb_datapath/dut/loada \
+sim:/tb_datapath/dut/loadb \
+sim:/tb_datapath/dut/asel \
+sim:/tb_datapath/dut/bsel \
+sim:/tb_datapath/dut/loadc \
+sim:/tb_datapath/dut/loads \
+sim:/tb_datapath/dut/write \
+sim:/tb_datapath/dut/ALUop \
+sim:/tb_datapath/dut/shift \
+sim:/tb_datapath/dut/datapath_in \
+sim:/tb_datapath/dut/Z_out \
+sim:/tb_datapath/dut/datapath_out \
+sim:/tb_datapath/dut/data_in \
+sim:/tb_datapath/dut/data_out \
+sim:/tb_datapath/dut/a_out \
+sim:/tb_datapath/dut/b_out \
+sim:/tb_datapath/dut/ALU_out \
+sim:/tb_datapath/dut/sout \
+sim:/tb_datapath/dut/Ain \
+sim:/tb_datapath/dut/Bin \
+sim:/tb_datapath/dut/Z
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: Bruce  Hostname: BRUCE_X  ProcessID: 8384
-#           Attempting to use alternate WLF file "./wlftggk3jm".
+#           Attempting to use alternate WLF file "./wlftr320g3".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftggk3jm
+#           Using alternate file: ./wlftr320g3
 run -all
-# Compile of tb_decoder.sv was successful.
-# Compile of decoder.sv was successful.
-# Compile of tb_reg_load.sv was successful.
-# Compile of reg_load.sv was successful.
-# Compile of mux_8in.sv was successful.
-# Compile of tb_mux_8in.sv was successful.
-# Compile of regfile.sv was successful.
-# Compile of tb_regfile.sv was successful.
-# Compile of alu.sv was successful.
-# Compile of tb_alu.sv was successful.
-# Compile of tb_shifter.sv was successful.
-# Compile of shifter.sv failed with 1 errors.
-# 12 compiles, 1 failed with 1 error.
-# Compile of tb_decoder.sv was successful.
-# Compile of decoder.sv was successful.
-# Compile of tb_reg_load.sv was successful.
-# Compile of reg_load.sv was successful.
-# Compile of mux_8in.sv was successful.
-# Compile of tb_mux_8in.sv was successful.
-# Compile of regfile.sv was successful.
-# Compile of tb_regfile.sv was successful.
-# Compile of alu.sv was successful.
-# Compile of tb_alu.sv was successful.
-# Compile of tb_shifter.sv was successful.
-# Compile of shifter.sv failed with 1 errors.
-# 12 compiles, 1 failed with 1 error.
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-5/tb_datapath.sv(31)
+#    Time: 75 ps  Iteration: 0  Instance: /tb_datapath
+# Break in Module tb_datapath at D:/UBC-CPEN-211/Lab-5/tb_datapath.sv line 31
 # Compile of tb_decoder.sv was successful.
 # Compile of decoder.sv was successful.
 # Compile of tb_reg_load.sv was successful.
@@ -78,27 +102,27 @@ run -all
 # Compile of tb_alu.sv was successful.
 # Compile of tb_shifter.sv was successful.
 # Compile of shifter.sv was successful.
-# 12 compiles, 0 failed with no errors.
+# Compile of tb_datapath.sv was successful.
+# Compile of datapath.sv was successful.
+# 14 compiles, 0 failed with no errors.
 restart
-# Loading work.tb_shifter
+# Loading work.tb_datapath
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.reg_load
 # Loading work.shifter
+# Loading work.alu
 run -all
-# Compile of tb_decoder.sv was successful.
-# Compile of decoder.sv was successful.
-# Compile of tb_reg_load.sv was successful.
-# Compile of reg_load.sv was successful.
-# Compile of mux_8in.sv was successful.
-# Compile of tb_mux_8in.sv was successful.
-# Compile of regfile.sv was successful.
-# Compile of tb_regfile.sv was successful.
-# Compile of alu.sv was successful.
-# Compile of tb_alu.sv was successful.
-# Compile of tb_shifter.sv was successful.
-# Compile of shifter.sv was successful.
-# 12 compiles, 0 failed with no errors.
-restart
-# Loading work.tb_shifter
-# Loading work.shifter
-run -all
-# End time: 22:39:19 on Jun 18,2022, Elapsed time: 0:12:27
-# Errors: 0, Warnings: 2
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-5/tb_datapath.sv(31)
+#    Time: 75 ps  Iteration: 0  Instance: /tb_datapath
+# Break in Module tb_datapath at D:/UBC-CPEN-211/Lab-5/tb_datapath.sv line 31
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# WARNING: No extended dataflow license exists
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"

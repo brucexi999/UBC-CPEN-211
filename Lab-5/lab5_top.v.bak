@@ -186,7 +186,7 @@ module sseg(in,segs);
 			'hd: hex = 7'b0100001;
 			'he: hex = 7'b0000110;
 			'hf: hex = 7'b0001110;
-			default: hex = 7'b1111111;
+			default: hex = 7'b1111111;ase
 		endcase 
 	end
 
