@@ -1,0 +1,6 @@
+module tb_datapath ();
+	logic clk, vsel, loada, loadb, asel, bsel, loadc, loads, write, Z_out;
+	logic [2:0] readnum, writenum;
+	
+	
+endmodule
