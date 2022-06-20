@@ -126,3 +126,5 @@ run -all
 # WARNING: No extended dataflow license exists
 # Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
 # Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+# End time: 21:08:00 on Jun 19,2022, Elapsed time: 3:40:03
+# Errors: 5, Warnings: 5
