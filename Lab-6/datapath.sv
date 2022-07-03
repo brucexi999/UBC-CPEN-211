@@ -1,10 +1,10 @@
 module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loadc, loads,
-				writenum, write, mdata, sximm8, PC, Z_out, datapath_out);
+				writenum, write, mdata, sximm8, PC, sximm5, Z_out, datapath_out);
 	input clk;
 	input [2:0] readnum, writenum;
 	input loada, loadb, asel, bsel, loadc, loads, write;
 	input [1:0] ALUop, shift, vsel; 
- 	input [15:0] mdata, sximm8;
+ 	input [15:0] mdata, sximm8, sximm5;
 	input [7:0] PC;
 	output Z_out;
 	output [15:0] datapath_out;
@@ -48,7 +48,7 @@ module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	always_comb begin
 		case (bsel)
 			1'b0: Bin = sout;
-			1'b1: Bin = {11'b0, datapath_in[4:0]};
+			1'b1: Bin = sximm5;
 			default: Bin = 16'bz; 
 		endcase
 	end
