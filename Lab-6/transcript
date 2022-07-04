@@ -1,0 +1,148 @@
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.tb_alu
+# vsim -gui work.tb_alu 
+# Start time: 17:16:11 on Jul 03,2022
+# Loading sv_std.std
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+add wave -position insertpoint  \
+sim:/tb_alu/dut/Ain \
+sim:/tb_alu/dut/Bin \
+sim:/tb_alu/dut/ALUop \
+sim:/tb_alu/dut/out \
+sim:/tb_alu/dut/Z \
+sim:/tb_alu/dut/V \
+sim:/tb_alu/dut/N \
+sim:/tb_alu/dut/add_sub_out \
+sim:/tb_alu/dut/and_out \
+sim:/tb_alu/dut/notB_out \
+sim:/tb_alu/dut/ALUop_1hot
+run -all
+quit -sim
+# End time: 17:17:42 on Jul 03,2022, Elapsed time: 0:01:31
+# Errors: 0, Warnings: 0
+vsim -gui work.tb_alu
+# vsim -gui work.tb_alu 
+# Start time: 17:18:05 on Jul 03,2022
+# Loading sv_std.std
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+add wave -position insertpoint  \
+sim:/tb_alu/dut/Ain \
+sim:/tb_alu/dut/Bin \
+sim:/tb_alu/dut/ALUop \
+sim:/tb_alu/dut/out \
+sim:/tb_alu/dut/Z \
+sim:/tb_alu/dut/V \
+sim:/tb_alu/dut/N \
+sim:/tb_alu/dut/add_sub_out \
+sim:/tb_alu/dut/and_out \
+sim:/tb_alu/dut/notB_out \
+sim:/tb_alu/dut/ALUop_1hot
+run -all
+restart
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+restart
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# 5 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_alu
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Loading work.decoder
+run -all

@@ -18,7 +18,7 @@ module alu (Ain, Bin, ALUop, out, Z, V, N);
 	assign and_out = Ain & Bin;
 	assign notB_out = ~Bin;
 	assign N = out[15]; 
-	assign Z = ~(out == 16'b0); 
+	assign Z = (out == 16'b0); 
 	
 	decoder #(2, 4) dec (.a(ALUop), .b(ALUop_1hot)); 
 	

@@ -18,7 +18,7 @@ module alu (Ain, Bin, ALUop, out, Z, V, N);
 	assign and_out = Ain & Bin;
 	assign notB_out = ~Bin;
 	assign N = out[15]; 
-	assign Z = ~(out == 16'b0); 
+	assign Z = (out =='h0000); 
 	
 	decoder #(2, 4) dec (.a(ALUop), .b(ALUop_1hot)); 
 	
@@ -28,6 +28,7 @@ module alu (Ain, Bin, ALUop, out, Z, V, N);
 			4'b0010: out = add_sub_out;
 			4'b0100: out = and_out;
 			4'b1000: out = notB_out;
+			default: out = 16'bz; 
 		endcase
 	end
 	
