@@ -4,4 +4,8 @@ module cpu (clk, reset, s, load, in, out, N, V, Z, w);
 	output [15:0] out;
 	output N, V, Z, w; 
 	
+	logic [15:0] ins_out;
+	
+	reg_load (in, ins_out, load, clk); // Instantiate the instruction register. 
+	
 endmodule

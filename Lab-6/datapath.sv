@@ -6,11 +6,11 @@ module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	input [1:0] ALUop, shift, vsel; 
  	input [15:0] mdata, sximm8, sximm5;
 	input [7:0] PC;
-	output Z_out;
+	output [2:0] status_out;
 	output [15:0] datapath_out;
 	
 	logic [15:0] data_in, data_out, a_out, b_out, ALU_out, sout, Ain, Bin;
-	logic Z; 
+	logic Z, V, N; 
 	
 	// Mux #9
 	always_comb begin
@@ -30,7 +30,7 @@ module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	reg_load #(16) REG_A (data_out, a_out, loada, clk);  
 	reg_load #(16) REG_B (data_out, b_out, loadb, clk);
 	reg_load #(16) REG_C (ALU_out, datapath_out, loadc, clk);
-	reg_load #(1) REG_S (Z, Z_out, loads, clk);
+	reg_load #(3) REG_S ({Z, V, N}, status_out, loads, clk);
 	
 	// Shifter
 	shifter SF (b_out, shift, sout); 
@@ -54,7 +54,7 @@ module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	end
 	
 	// ALU
-	alu ALU (Ain, Bin, ALUop, ALU_out, Z);
+	alu ALU (Ain, Bin, ALUop, ALU_out, Z, V, N);
 	
 	
 endmodule
