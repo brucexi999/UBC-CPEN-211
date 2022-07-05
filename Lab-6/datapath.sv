@@ -30,7 +30,7 @@ module datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	reg_load #(16) REG_A (data_out, a_out, loada, clk);  
 	reg_load #(16) REG_B (data_out, b_out, loadb, clk);
 	reg_load #(16) REG_C (ALU_out, datapath_out, loadc, clk);
-	reg_load #(3) REG_S ({Z, V, N}, status_out, loads, clk);
+	reg_load #(3) REG_S ({Z, V, N}, status_out, loads, clk); // The status register. 
 	
 	// Shifter
 	shifter SF (b_out, shift, sout); 
