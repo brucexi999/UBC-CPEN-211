@@ -6,7 +6,7 @@ module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcod
 	output logic [15:0] sximm5, sximm8; 
 	output logic [2:0] readnum, writenum, opcode;
 	
-	logic [2:0] Rn, Rd, Rm; 
+	logic [2:0] Rn, Rd, Rm, mux_out; 
 	logic [4:0] imm5; 
 	logic [7:0] imm8; 
 	
@@ -19,29 +19,24 @@ module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcod
 	assign ALUop = in[12:11];
 	assign op = in[12:11];
 	assign opcode = in[15:13]; 
+	assign readnum = mux_out;
+	assign writenum = mux_out;
 	
 	// nsel Mux
 	always_comb begin
 		case (nsel)
 			3'b001: 
-			begin
-				readnum = Rm;
-				writenum = Rm; 
-			end
+				mux_out = Rm;
 
 			3'b010: 
-			begin
-				readnum = Rd;
-				writenum = Rd; 
-			end
-
+				mux_out = Rd;
+				
 			3'b100: 
-			begin
-				readnum = Rn;
-				writenum = Rn; 
-			end
-			
+				mux_out = Rn; 
 		endcase
 	end
+	
+	assign sximm5 = $signed({imm5, 11'b0}) >>> 11; 
+	assign sximm8 = $signed({imm8, 8'b0}) >>> 8; 
 	
 endmodule

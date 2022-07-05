@@ -146,3 +146,84 @@ restart
 # Loading work.Mubi_adder
 # Loading work.decoder
 run -all
+quit -sim
+# End time: 20:24:46 on Jul 04,2022, Elapsed time: 27:06:41
+# Errors: 0, Warnings: 0
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -gui work.tb_Ins_Dec
+# vsim -gui work.tb_Ins_Dec 
+# Start time: 20:25:11 on Jul 04,2022
+# Loading sv_std.std
+# Loading work.tb_Ins_Dec
+# Loading work.Ins_Dec
+add wave -position insertpoint  \
+sim:/tb_Ins_Dec/dut/in \
+sim:/tb_Ins_Dec/dut/nsel \
+sim:/tb_Ins_Dec/dut/ALUop \
+sim:/tb_Ins_Dec/dut/shift \
+sim:/tb_Ins_Dec/dut/op \
+sim:/tb_Ins_Dec/dut/sximm5 \
+sim:/tb_Ins_Dec/dut/sximm8 \
+sim:/tb_Ins_Dec/dut/readnum \
+sim:/tb_Ins_Dec/dut/writenum \
+sim:/tb_Ins_Dec/dut/opcode \
+sim:/tb_Ins_Dec/dut/Rn \
+sim:/tb_Ins_Dec/dut/Rd \
+sim:/tb_Ins_Dec/dut/Rm \
+sim:/tb_Ins_Dec/dut/mux_out \
+sim:/tb_Ins_Dec/dut/imm5 \
+sim:/tb_Ins_Dec/dut/imm8
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_Ins_Dec
+# Loading work.Ins_Dec
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_Ins_Dec
+# Loading work.Ins_Dec
+run -all
+restart
+run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv failed with 2 errors.
+# 7 compiles, 1 failed with 2 errors.
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_Ins_Dec
+# Loading work.Ins_Dec
+run -all
