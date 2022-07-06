@@ -227,3 +227,15 @@ restart
 # Loading work.tb_Ins_Dec
 # Loading work.Ins_Dec
 run -all
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# 7 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_Ins_Dec
+# Loading work.Ins_Dec
+run -all

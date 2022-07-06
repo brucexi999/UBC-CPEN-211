@@ -15,5 +15,6 @@ module tb_Ins_Dec ();
 	initial begin 
 		nsel = 3'b001; in[7:0] = 8'b00100001; #5;
 		nsel = 3'b010; in[7:0] = 8'b10100001; #5;
+		in = 'h1234; #5; 
 	end
 endmodule
