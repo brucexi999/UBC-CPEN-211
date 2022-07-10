@@ -6,8 +6,8 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	input [1:0] ALUop, shift, vsel; 
  	input [15:0] mdata, sximm8, sximm5;
 	input [7:0] PC;
-	output [2:0] status_out;
-	output [15:0] datapath_out;
+	output logic [2:0] status_out;
+	output logic [15:0] datapath_out;
 	
 	logic [15:0] data_in, data_out, a_out, b_out, ALU_out, sout, Ain, Bin;
 	logic Z, V, N; 
