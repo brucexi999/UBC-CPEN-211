@@ -25,11 +25,11 @@ module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcod
 	// nsel Mux
 	always_comb begin
 		case (nsel)
-			3'b001: mux_out = Rm;
+			3'b001: mux_out = Rn;
 
 			3'b010: mux_out = Rd;
 				
-			3'b100: mux_out = Rn; 
+			3'b100: mux_out = Rm; 
 		endcase
 	end
 	
