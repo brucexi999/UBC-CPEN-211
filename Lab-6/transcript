@@ -34,3 +34,249 @@
 # Compile of cpu.sv was successful.
 # Compile of tb_cpu.sv was successful with warnings.
 # 17 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful with warnings.
+# 17 compiles, 0 failed with no errors.
+vsim -gui work.tb_cpu
+# vsim -gui work.tb_cpu 
+# Start time: 22:55:19 on Jul 14,2022
+# Loading sv_std.std
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+add wave -position insertpoint  \
+sim:/tb_cpu/dut/clk \
+sim:/tb_cpu/dut/reset \
+sim:/tb_cpu/dut/s \
+sim:/tb_cpu/dut/load \
+sim:/tb_cpu/dut/in \
+sim:/tb_cpu/dut/out \
+sim:/tb_cpu/dut/N \
+sim:/tb_cpu/dut/V \
+sim:/tb_cpu/dut/Z \
+sim:/tb_cpu/dut/w \
+sim:/tb_cpu/dut/ins_out \
+sim:/tb_cpu/dut/ALUop \
+sim:/tb_cpu/dut/shift \
+sim:/tb_cpu/dut/op \
+sim:/tb_cpu/dut/vsel \
+sim:/tb_cpu/dut/sximm5 \
+sim:/tb_cpu/dut/sximm8 \
+sim:/tb_cpu/dut/readnum \
+sim:/tb_cpu/dut/writenum \
+sim:/tb_cpu/dut/opcode \
+sim:/tb_cpu/dut/nsel \
+sim:/tb_cpu/dut/loada \
+sim:/tb_cpu/dut/loadb \
+sim:/tb_cpu/dut/loadc \
+sim:/tb_cpu/dut/loads \
+sim:/tb_cpu/dut/asel \
+sim:/tb_cpu/dut/bsel \
+sim:/tb_cpu/dut/write
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Bruce  Hostname: BRUCE_X  ProcessID: 5172
+#           Attempting to use alternate WLF file "./wlft4ij11v".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft4ij11v
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(23)
+#    Time: 95 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 23
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+restart
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful with warnings.
+# 17 compiles, 0 failed with no errors.
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful with warnings.
+# 17 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(23)
+#    Time: 105 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 23
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful.
+# 17 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(23)
+#    Time: 105 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 23
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful.
+# 17 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(23)
+#    Time: 115 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 23
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful.
+# 17 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(23)
+#    Time: 105 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 23

@@ -16,10 +16,10 @@ module tb_cpu ();
 
     initial begin
         #5; 
-        reset = 1; #20; // Check for fsm's reset and w. 
-        reset = 0; load = 1; in = {3'b110, 2'b10, 3'b001, 'h02}; #10; // Load the instruction to the instruction register. 
-        load = 0; s = 1; #60; // Run the fsm. 
-
+        reset = 1; #30; // Check for fsm's reset and w. 
+        reset = 0; load = 1; in = {3'b110, 2'b10, 3'b001, 8'b00000010}; #10; // Load the instruction to the instruction register. 
+        load = 0; s = 1; #30; // Run the fsm. 
+        s = 0; #30; 
         $stop;
     end
 endmodule 
