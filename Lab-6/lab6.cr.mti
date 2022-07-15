@@ -1,30 +1,16 @@
-D:/UBC-CPEN-211/Lab-6/fsm.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/fsm.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module FSM
-
-Top level modules:
-	FSM
-
-} {} {}} D:/UBC-CPEN-211/Lab-6/decoder.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/decoder.sv
+D:/UBC-CPEN-211/Lab-6/decoder.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/decoder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module decoder
 
 Top level modules:
 	decoder
 
-} {} {}} D:/UBC-CPEN-211/Lab-6/alu.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/alu.sv
+} {} {}} D:/UBC-CPEN-211/Lab-6/fsm.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/fsm.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module alu
+-- Compiling module FSM
 
 Top level modules:
-	alu
-
-} {} {}} D:/UBC-CPEN-211/Lab-6/tb_Ins_Dec.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/tb_Ins_Dec.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_Ins_Dec
-
-Top level modules:
-	tb_Ins_Dec
+	FSM
 
 } {} {}} D:/UBC-CPEN-211/Lab-6/tb_alu.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/tb_alu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -33,12 +19,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_alu
 
-} {} {}} D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv
+} {} {}} D:/UBC-CPEN-211/Lab-6/mux_8in.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/mux_8in.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module AddSubOvf
+-- Compiling module mux_8in
 
 Top level modules:
-	AddSubOvf
+	mux_8in
 
 } {} {}} D:/UBC-CPEN-211/Lab-6/Multi_bit_adder.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Multi_bit_adder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -47,11 +33,67 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	Mubi_adder
 
+} {} {}} D:/UBC-CPEN-211/Lab-6/alu.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/alu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module alu
+
+Top level modules:
+	alu
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module AddSubOvf
+
+Top level modules:
+	AddSubOvf
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/shifter.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/shifter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module shifter
+
+Top level modules:
+	shifter
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/regfile.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/regfile.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/datapath.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/datapath.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Datapath
+
+Top level modules:
+	Datapath
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/tb_Ins_Dec.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/tb_Ins_Dec.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_Ins_Dec
+
+Top level modules:
+	tb_Ins_Dec
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/tb_fsm.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/tb_fsm.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_FSM
+
+Top level modules:
+	tb_FSM
+
 } {} {}} D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Ins_Dec
 
 Top level modules:
 	Ins_Dec
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/reg_load.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/reg_load.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module reg_load
+
+Top level modules:
+	reg_load
 
 } {} {}}
