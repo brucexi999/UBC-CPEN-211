@@ -18,7 +18,7 @@ module tb_cpu ();
         #5; 
         reset = 1; #20; // Check for fsm's reset and w. 
         reset = 0; load = 1; in = {3'b110, 2'b10, 3'b001, 'h02}; #10; // Load the instruction to the instruction register. 
-        load = 0; s = 1; // Run the fsm. 
+        load = 0; s = 1; #60; // Run the fsm. 
 
         $stop;
     end
