@@ -8,7 +8,7 @@ module cpu (clk, reset, s, load, in, out, N, V, Z, w);
 	logic [1:0] ALUop, shift, op, vsel;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel;
-	logic w, loada, loadb, loadc, loads, asel, bsel, write;
+	logic loada, loadb, loadc, loads, asel, bsel, write;
 
 	// The instruction register.
 	reg_load ins_reg (
