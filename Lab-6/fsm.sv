@@ -15,7 +15,10 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
         // Instruction 2
         read_rm_load_b,
         shift_b,
-        feedback_save_rd
+        feedback_save_rd,
+        // Instruciton 3
+        read_rn_load_a,
+        add_ab
     } state;
     
     always_ff @ (posedge clk) begin
@@ -36,7 +39,7 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     w <= 0;
                     if (opcode == 3'b110 && op == 2'b10)
                         state <= move_save;
-                    else if (opcode == 3'b110 && op == 2'b00)
+                    else 
                         state <= read_rm_load_b;
                 end
 
@@ -50,9 +53,12 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
 
                 read_rm_load_b:
                 begin
-                    nsel <= 3'b0;
+                    nsel <= 3'b100;
                     loadb <= 1;
-                    state <= shift_b;
+                    if ({opcode, op} == 5'b11000)
+                        state <= shift_b;
+                    else if ({opcode, op} == 5'b10100)
+                        state <= read_rn_load_a;
                 end
 
                 shift_b:
@@ -61,7 +67,6 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     bsel <= 0;
                     asel <= 1;
                     loadc <= 1;
-                    loads <= 1;
                     state <= feedback_save_rd;
                 end
 
@@ -73,9 +78,22 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     state <= idle;
                 end
 
+                read_rn_load_a:
+                begin
+                    nsel <= 3'b001;
+                    loada <= 1;
+                    loadb <= 0;
+                    state <= add_ab;
+                end
 
-
-
+                add_ab:
+                begin
+                    loada <= 0;
+                    asel <= 0;
+                    bsel <= 0;
+                    loadc <= 1;
+                    state <= feedback_save_rd;
+                end
 
             endcase 
         end

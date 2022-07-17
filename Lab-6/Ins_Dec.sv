@@ -30,6 +30,8 @@ module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcod
 			3'b010: mux_out = Rd;
 				
 			3'b100: mux_out = Rm; 
+
+			default: mux_out = 3'bz; 
 		endcase
 	end
 	
