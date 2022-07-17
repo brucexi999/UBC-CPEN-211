@@ -19,8 +19,10 @@ module tb_FSM ();
 
     initial begin
         rst = 1; #15;
-        rst = 0; opcode = 3'b110; op = 2'b10; s = 1; #5;
+        rst = 0; opcode = 3'b110; op = 2'b10; s = 1; #5; // Instruction 1
         s = 0; #95;  
+        opcode = 3'b110; op = 2'b00; s = 1; #5; // Instrcution 2
+        s = 0; #95;
         $stop();
     end
 
