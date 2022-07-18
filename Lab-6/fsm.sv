@@ -6,19 +6,21 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
     output logic [2:0] nsel;
     output logic [1:0] vsel;
 
-    // The state machine that supports --2-- instruction.
+    // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
         idle, 
         decode,
         move_save,
-        // Instruction 2
+        // Instruction 2, 6
         read_rm_load_b,
         shift_b,
         feedback_save_rd,
-        // Instruciton 3
+        // Instruciton 3, 5
         read_rn_load_a,
-        add_ab
+        add_and_ab,
+        // Instruction 4
+        sub_ab
     } state;
     
     always_ff @ (posedge clk) begin
@@ -28,6 +30,14 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
             case (state)
                 idle: 
                 begin
+                    loada <= 0;
+                    loadb <= 0;
+                    loadc <= 0;
+                    loads <= 0;
+                    asel <= 0;
+                    bsel <= 0;
+                    vsel <= 2'b0;
+                    nsel <= 3'b0; 
                     write <= 0; 
                     w <= 1;
                     if (s)
@@ -55,9 +65,9 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                 begin
                     nsel <= 3'b100;
                     loadb <= 1;
-                    if ({opcode, op} == 5'b11000)
+                    if ({opcode, op} == 5'b11000 || {opcode, op} == 5'b10111)
                         state <= shift_b;
-                    else if ({opcode, op} == 5'b10100)
+                    else 
                         state <= read_rn_load_a;
                 end
 
@@ -75,6 +85,7 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     vsel <= 2'b0;
                     nsel <= 3'b010;
                     write <= 1;
+                    loadc <= 0;
                     state <= idle;
                 end
 
@@ -83,10 +94,13 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     nsel <= 3'b001;
                     loada <= 1;
                     loadb <= 0;
-                    state <= add_ab;
+                    if ({opcode,op} == 5'b10101)
+                        state <= sub_ab;
+                    else
+                        state <= add_and_ab;
                 end
 
-                add_ab:
+                add_and_ab:
                 begin
                     loada <= 0;
                     asel <= 0;
@@ -95,6 +109,15 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     state <= feedback_save_rd;
                 end
 
+                sub_ab:
+                begin
+                    loada <= 0;
+                    asel <= 0;
+                    bsel <= 0;
+                    loadc <= 1;
+                    loads <= 1;
+                    state <= idle;
+                end
             endcase 
         end
 
