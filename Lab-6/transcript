@@ -531,3 +531,39 @@ run -all
 # ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(39)
 #    Time: 375 ps  Iteration: 0  Instance: /tb_cpu
 # Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 39
+# Compile of tb_alu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of tb_Ins_Dec.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of fsm.sv was successful.
+# Compile of tb_fsm.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of tb_datapath.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of tb_cpu.sv was successful.
+# 17 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_cpu
+# Loading work.cpu
+# Loading work.reg_load
+# Loading work.Ins_Dec
+# Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-6/tb_cpu.sv(48)
+#    Time: 555 ps  Iteration: 0  Instance: /tb_cpu
+# Break in Module tb_cpu at D:/UBC-CPEN-211/Lab-6/tb_cpu.sv line 48

@@ -35,7 +35,18 @@ module tb_cpu ();
         load = 1; in = {3'b101, 2'b01, 3'b010, 3'b000, 2'b00, 3'b000 }; #10; // load. Rn = 2, Rn = 0
         load = 0; s = 1; #10; // run 
         s = 0; #70; 
+
+        // Instuction 5
+        load = 1; in = {3'b101, 2'b10, 3'b010, 3'b011, 2'b00, 3'b000 }; #10; // load. Rn = 2, Rn = 0, Rd = 3
+        load = 0; s = 1; #10; // run 
+        s = 0; #70;  
+
+        // Instuction 6
+        load = 1; in = {3'b101, 2'b11, 3'b000, 3'b100, 2'b01, 3'b000 }; #10; // load. Rn = 4, Rn = 0
+        load = 0; s = 1; #10; // run 
+        s = 0; #70;  
         $stop;
+
     end
 endmodule 
 

@@ -10,7 +10,7 @@ cModel Technology
 dD:/UBC-CPEN-211/Lab-5
 vAddSubOvf
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1658106458
+Z1 !s110 1658113111
 !i10b 1
 !s100 QNZY[8J_7ciSRbJi15JIQ2
 IkZQ5@Cj^eJP1BEabM7TYR0
@@ -26,7 +26,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1658106458.000000
+Z5 !s108 1658113111.000000
 !s107 D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-6/Add_Sub_Ovf.sv|
 !i113 1
@@ -59,7 +59,7 @@ R6
 R7
 vcpu
 R0
-Z8 !s110 1658106460
+Z8 !s110 1658113112
 !i10b 1
 !s100 e9Y^R^D1RlI0]Y1V=4H2B2
 IDk5TnKa?N302V3kj:]abf2
@@ -75,7 +75,7 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1658106460.000000
+Z9 !s108 1658113112.000000
 !s107 D:/UBC-CPEN-211/Lab-6/cpu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-6/cpu.sv|
 !i113 1
@@ -83,7 +83,7 @@ R6
 R7
 vDatapath
 R0
-R8
+R1
 !i10b 1
 !s100 zHG@JnTOC6o739Fk`m>Fn3
 IGFOVMUoAINF<Nz28cCRJH3
@@ -99,7 +99,7 @@ R4
 r1
 !s85 0
 31
-R9
+R5
 !s107 D:/UBC-CPEN-211/Lab-6/datapath.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-6/datapath.sv|
 !i113 1
@@ -271,7 +271,7 @@ R4
 r1
 !s85 0
 31
-R9
+R5
 !s107 D:/UBC-CPEN-211/Lab-6/regfile.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-6/regfile.sv|
 !i113 1
@@ -329,13 +329,13 @@ vtb_cpu
 R0
 R8
 !i10b 1
-!s100 <`:lDk:WnA?dPC=NdJZj?1
-IcES:hHQFEmNg`fgQmfb`02
+!s100 oALO9aI6NjYnU@l;<Bnf]3
+IeL:jIzBeNK<mDiKGNOB5W1
 R2
 !s105 tb_cpu_sv_unit
 S1
 R3
-w1658106386
+w1658112917
 8D:/UBC-CPEN-211/Lab-6/tb_cpu.sv
 FD:/UBC-CPEN-211/Lab-6/tb_cpu.sv
 L0 1
@@ -351,7 +351,7 @@ R6
 R7
 vtb_datapath
 R0
-R8
+R1
 !i10b 1
 !s100 4]gZ?;fNJ]R8F^^Q:0<7=0
 I6YlDl1S6IB7M1JS5O?5n<3
@@ -367,7 +367,7 @@ R4
 r1
 !s85 0
 31
-R9
+R5
 !s107 D:/UBC-CPEN-211/Lab-6/tb_datapath.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-6/tb_datapath.sv|
 !i113 1
@@ -375,7 +375,7 @@ R6
 R7
 vtb_FSM
 R0
-R8
+R1
 !i10b 1
 !s100 PDGd;<PWG:Q]=z]C_lg>=3
 Iz:7DNlAca2@RD`64_5_`63
