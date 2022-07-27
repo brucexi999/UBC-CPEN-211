@@ -30,7 +30,7 @@
 // The input load is 1 as long as you press (and hold) KEY3.
 
 module lab6_top(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,CLOCK_50);
-  input [3:0] KEY;
+  input [3:0] KEY;                                                                    
   input [9:0] SW;
   output [9:0] LEDR; 
   output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;

@@ -96,18 +96,18 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	tb_datapath
 
-} {} {}} D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module Ins_Dec
-
-Top level modules:
-	Ins_Dec
-
 } {} {}} D:/UBC-CPEN-211/Lab-6/reg_load.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/reg_load.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module reg_load
 
 Top level modules:
 	reg_load
+
+} {} {}} D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-6/Ins_Dec.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module Ins_Dec
+
+Top level modules:
+	Ins_Dec
 
 } {} {}}
