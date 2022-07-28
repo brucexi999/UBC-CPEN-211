@@ -1,5 +1,5 @@
-module cpu (clk, reset, s, load, in, out, N, V, Z, w);
-	input clk, reset, s, load; 
+module cpu (clk, reset, s, in, out, N, V, Z, w);
+	input clk, reset, s; 
 	input [15:0] in;
 	output logic [15:0] out;
 	output logic N, V, Z, w; 
@@ -8,14 +8,14 @@ module cpu (clk, reset, s, load, in, out, N, V, Z, w);
 	logic [1:0] ALUop, shift, op, vsel;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel;
-	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc;
+	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel;
 	logic [8:0] pc_out, next_pc; 
 
 	// The instruction register.
 	reg_load ins_reg (
 		.a (in), 
 		.b (ins_out), 
-		.load (load), 
+		.load (load_ir), 
 		.clk (clk)
 	);  
 	
@@ -50,7 +50,12 @@ module cpu (clk, reset, s, load, in, out, N, V, Z, w);
 		.bsel (bsel),
 		.vsel (vsel),
 		.nsel (nsel),
-		.write (write)
+		.write (write),
+		.load_ir (load_ir),
+		.load_pc (load_pc),
+		.reset_pc (reset_pc),
+		.addr_sel (addr_sel)
+
 	);
 
 	// The datapath. 
@@ -86,6 +91,6 @@ module cpu (clk, reset, s, load, in, out, N, V, Z, w);
 	
 	assign next_pc = pc_out + 1'b1; 
 
-	
+
 
 endmodule
