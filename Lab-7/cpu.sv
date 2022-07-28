@@ -1,8 +1,8 @@
-module cpu (clk, reset, s, in, out, N, V, Z, w);
+module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	input clk, reset, s; 
 	input [15:0] in;
 	output logic [15:0] out;
-	output logic N, V, Z, w; 
+	output logic N, V, Z, w, mem_cmd; 
 	
 	logic [15:0] ins_out;
 	logic [1:0] ALUop, shift, op, vsel;
@@ -54,8 +54,8 @@ module cpu (clk, reset, s, in, out, N, V, Z, w);
 		.load_ir (load_ir),
 		.load_pc (load_pc),
 		.reset_pc (reset_pc),
-		.addr_sel (addr_sel)
-
+		.addr_sel (addr_sel),
+		.mem_cmd (mem_cmd)
 	);
 
 	// The datapath. 
