@@ -9,7 +9,7 @@ module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel;
 	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel;
-	logic [8:0] pc_out, next_pc; 
+	logic [8:0] pc_out, next_pc, mem_addr; 
 
 	// The instruction register.
 	reg_load ins_reg (
@@ -91,6 +91,14 @@ module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	
 	assign next_pc = pc_out + 1'b1; 
 
+	// Addr mux.
+	always_comb begin : addr_mux
+		case (addr_sel)
+			1'b0: mem_addr = 9'b0;
+			1'b1: mem_addr = pc_out; 
+			default: mem_addr = 9'bz; 
+		endcase
+	end
 
-
+	
 endmodule
