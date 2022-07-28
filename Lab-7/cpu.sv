@@ -2,7 +2,8 @@ module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	input clk, reset, s; 
 	input [15:0] in;
 	output logic [15:0] out;
-	output logic N, V, Z, w, mem_cmd; 
+	output logic N, V, Z, w;
+	output logic [1:0] mem_cmd;  
 	
 	logic [15:0] ins_out;
 	logic [1:0] ALUop, shift, op, vsel;

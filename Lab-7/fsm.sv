@@ -2,9 +2,9 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
     input clk, rst, s;
     input [2:0] opcode;
     input [1:0] op;
-    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, mem_cmd;
+    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel;
     output logic [2:0] nsel;
-    output logic [1:0] vsel;
+    output logic [1:0] vsel mem_cmd;
 
     // The state machine that supports --6-- instruction.
     enum {
