@@ -1,0 +1,85 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/UBC-CPEN-211/Lab-6
+vFSM
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1659207857
+!i10b 1
+!s100 ]VTKlbNHZ7NhI;Wf=8eGj1
+IG;i;kVn]zlW_eAI2KB`nh0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 fsm_sv_unit
+S1
+Z3 dD:/UBC-CPEN-211/Lab-7
+w1659207854
+8D:/UBC-CPEN-211/Lab-7/fsm.sv
+FD:/UBC-CPEN-211/Lab-7/fsm.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1659207857.000000
+!s107 D:/UBC-CPEN-211/Lab-7/fsm.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-7/fsm.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+n@f@s@m
+vtb_fSM
+R0
+!s110 1659207743
+!i10b 1
+!s100 4kLM>0zcnh>Xe?24m9Da33
+IA2=6idIRo303;M19eC8VY2
+R2
+Z8 !s105 tb_fsm_sv_unit
+S1
+R3
+w1659207739
+Z9 8D:/UBC-CPEN-211/Lab-7/tb_fsm.sv
+Z10 FD:/UBC-CPEN-211/Lab-7/tb_fsm.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1659207743.000000
+Z11 !s107 D:/UBC-CPEN-211/Lab-7/tb_fsm.sv|
+Z12 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-7/tb_fsm.sv|
+!i113 1
+R6
+R7
+ntb_f@s@m
+vtb_FSM
+R0
+R1
+!i10b 1
+!s100 D7_T:9z:g^9k<zZ0z^eLg1
+I:4QzlD=16=fd[Edh36BlK0
+R2
+R8
+S1
+R3
+w1659207756
+R9
+R10
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+R11
+R12
+!i113 1
+R6
+R7
+ntb_@f@s@m

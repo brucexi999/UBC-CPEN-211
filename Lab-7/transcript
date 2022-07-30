@@ -1,0 +1,51 @@
+# Compile of tb_fsm.sv failed with 19 errors.
+# Compile of fsm.sv was successful.
+# 2 compiles, 1 failed with 19 errors.
+# Compile of tb_fsm.sv was successful.
+# Compile of fsm.sv was successful.
+# 2 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of tb_fsm.sv was successful.
+# Compile of fsm.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui work.tb_FSM
+# vsim -gui work.tb_FSM 
+# Start time: 12:02:55 on Jul 30,2022
+# Loading sv_std.std
+# Loading work.tb_FSM
+# Loading work.FSM
+add wave -position insertpoint  \
+sim:/tb_FSM/dut/clk \
+sim:/tb_FSM/dut/rst \
+sim:/tb_FSM/dut/opcode \
+sim:/tb_FSM/dut/op \
+sim:/tb_FSM/dut/w \
+sim:/tb_FSM/dut/loada \
+sim:/tb_FSM/dut/loadb \
+sim:/tb_FSM/dut/loadc \
+sim:/tb_FSM/dut/loads \
+sim:/tb_FSM/dut/asel \
+sim:/tb_FSM/dut/bsel \
+sim:/tb_FSM/dut/write \
+sim:/tb_FSM/dut/load_pc \
+sim:/tb_FSM/dut/load_ir \
+sim:/tb_FSM/dut/reset_pc \
+sim:/tb_FSM/dut/addr_sel \
+sim:/tb_FSM/dut/nsel \
+sim:/tb_FSM/dut/vsel \
+sim:/tb_FSM/dut/mem_cmd \
+sim:/tb_FSM/dut/state
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_fsm.sv(26)
+#    Time: 125 ps  Iteration: 0  Instance: /tb_FSM
+# Break in Module tb_FSM at D:/UBC-CPEN-211/Lab-7/tb_fsm.sv line 26
+# Compile of tb_fsm.sv was successful.
+# Compile of fsm.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# Loading work.tb_FSM
+# Loading work.FSM
+run -all
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_fsm.sv(26)
+#    Time: 125 ps  Iteration: 0  Instance: /tb_FSM
+# Break in Module tb_FSM at D:/UBC-CPEN-211/Lab-7/tb_fsm.sv line 26

@@ -1,0 +1,8 @@
+D:/UBC-CPEN-211/Lab-7/fsm.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-7/fsm.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module FSM
+
+Top level modules:
+	FSM
+
+} {} {}}

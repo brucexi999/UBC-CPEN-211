@@ -1,15 +1,14 @@
-module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd);
-    input clk, rst, s;
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd);
+    input clk, rst;
     input [2:0] opcode;
     input [1:0] op;
     output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel;
     output logic [2:0] nsel;
-    output logic [1:0] vsel mem_cmd;
+    output logic [1:0] vsel, mem_cmd;
 
     // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
-        idle, 
         decode,
         move_save,
         // Instruction 2, 6
@@ -20,15 +19,20 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
         read_rn_load_a,
         add_and_ab,
         // Instruction 4
-        sub_ab
+        sub_ab, 
+        // Lab 7
+        reset, 
+        if1, 
+        if2, 
+        update_pc
     } state;
     
     always_ff @ (posedge clk) begin
         if (rst)
-            state <= idle;
+            state <= reset;
         else begin
             case (state)
-                idle: 
+                reset: 
                 begin
                     loada <= 0;
                     loadb <= 0;
@@ -40,12 +44,48 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     nsel <= 3'b0; 
                     write <= 0; 
                     w <= 1;
-                    if (s)
-                        state <= decode;
+                    reset_pc <= 1;
+                    load_pc <= 1;
+                    state <= if1; 
                 end
+
+                if1:
+                begin
+                    loada <= 0;
+                    loadb <= 0;
+                    loadc <= 0;
+                    loads <= 0;
+                    asel <= 0;
+                    bsel <= 0;
+                    vsel <= 2'b0;
+                    nsel <= 3'b0; 
+                    write <= 0; 
+                    w <= 1;
+                    reset_pc <= 0;
+                    load_pc <= 0; 
+                    addr_sel <= 1;
+                    mem_cmd <= 2'b01; // mem_cmd == 2'b01 as the read command to memory.
+                    state <= if2;
+                end
+
+                if2:
+                begin
+                    load_ir <= 1;
+                    state <= update_pc;
+                end
+
+                update_pc:
+                begin
+                    load_pc <= 1; 
+                    load_ir <= 0; 
+                    mem_cmd <= 2'b10; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing. 
+                    state <= decode;
+                end
+
 
                 decode:
                 begin
+                    load_pc <= 0; 
                     w <= 0;
                     if (opcode == 3'b110 && op == 2'b10)
                         state <= move_save;
@@ -58,7 +98,7 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     nsel <= 3'b001;
                     write <= 1;
                     vsel <= 2'b10; 
-                    state <= idle;
+                    state <= if1;
                 end
 
                 read_rm_load_b:
@@ -86,7 +126,7 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     nsel <= 3'b010;
                     write <= 1;
                     loadc <= 0;
-                    state <= idle;
+                    state <= if1;
                 end
 
                 read_rn_load_a:
@@ -116,7 +156,7 @@ module FSM (clk, rst, s, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, 
                     bsel <= 0;
                     loadc <= 1;
                     loads <= 1;
-                    state <= idle;
+                    state <= if1;
                 end
             endcase 
         end
