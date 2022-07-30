@@ -14,4 +14,8 @@ Tristate tri_drv (
     .enable ((mem_cmd == 2'b01 && mem_addr[8] == 1'b0))
 );
 
+CPU cpu ();
+RAM ram (); 
+
+
 endmodule

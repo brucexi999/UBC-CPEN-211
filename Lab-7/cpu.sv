@@ -1,4 +1,4 @@
-module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
+module CPU (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	input clk, reset, s; 
 	input [15:0] in;
 	output logic [15:0] out;
@@ -84,13 +84,19 @@ module cpu (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 
 	// The program counter.
 	always_ff @(posedge clk) begin
-		if(reset_pc) 
-			pc_out <= 9'b0; 
-		else if (load_pc) 
+		if (load_pc) 
 			pc_out <= next_pc; 
 	end
+
+	always_comb begin : pc_mux
+		case (reset_pc)
+			1'b0: next_pc = pc_out + 1'b1;
+			1'b1: next_pc = 9'b0;  
+			default: next_pc = 9'bz; 
+		endcase
+	end
 	
-	assign next_pc = pc_out + 1'b1; 
+	assign  
 
 	// Addr mux.
 	always_comb begin : addr_mux
