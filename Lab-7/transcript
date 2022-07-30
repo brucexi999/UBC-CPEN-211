@@ -1,51 +1,106 @@
-# Compile of tb_fsm.sv failed with 19 errors.
-# Compile of fsm.sv was successful.
-# 2 compiles, 1 failed with 19 errors.
 # Compile of tb_fsm.sv was successful.
 # Compile of fsm.sv was successful.
-# 2 compiles, 0 failed with no errors.
-# Load canceled
-# Compile of tb_fsm.sv was successful.
-# Compile of fsm.sv was successful.
-# 2 compiles, 0 failed with no errors.
-vsim -gui work.tb_FSM
-# vsim -gui work.tb_FSM 
-# Start time: 12:02:55 on Jul 30,2022
+# Compile of tb_cpu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of dishex.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 15 compiles, 0 failed with no errors.
+vsim -gui work.tb_CPU
+# vsim -gui work.tb_CPU 
+# Start time: 15:38:56 on Jul 30,2022
 # Loading sv_std.std
-# Loading work.tb_FSM
+# Loading work.tb_CPU
+# Loading work.CPU
+# Loading work.reg_load
+# Loading work.Ins_Dec
 # Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
 add wave -position insertpoint  \
-sim:/tb_FSM/dut/clk \
-sim:/tb_FSM/dut/rst \
-sim:/tb_FSM/dut/opcode \
-sim:/tb_FSM/dut/op \
-sim:/tb_FSM/dut/w \
-sim:/tb_FSM/dut/loada \
-sim:/tb_FSM/dut/loadb \
-sim:/tb_FSM/dut/loadc \
-sim:/tb_FSM/dut/loads \
-sim:/tb_FSM/dut/asel \
-sim:/tb_FSM/dut/bsel \
-sim:/tb_FSM/dut/write \
-sim:/tb_FSM/dut/load_pc \
-sim:/tb_FSM/dut/load_ir \
-sim:/tb_FSM/dut/reset_pc \
-sim:/tb_FSM/dut/addr_sel \
-sim:/tb_FSM/dut/nsel \
-sim:/tb_FSM/dut/vsel \
-sim:/tb_FSM/dut/mem_cmd \
-sim:/tb_FSM/dut/state
+sim:/tb_CPU/dut/clk \
+sim:/tb_CPU/dut/reset \
+sim:/tb_CPU/dut/in \
+sim:/tb_CPU/dut/out \
+sim:/tb_CPU/dut/N \
+sim:/tb_CPU/dut/V \
+sim:/tb_CPU/dut/Z \
+sim:/tb_CPU/dut/w \
+sim:/tb_CPU/dut/mem_cmd \
+sim:/tb_CPU/dut/mem_addr \
+sim:/tb_CPU/dut/ins_out \
+sim:/tb_CPU/dut/ALUop \
+sim:/tb_CPU/dut/shift \
+sim:/tb_CPU/dut/op \
+sim:/tb_CPU/dut/vsel \
+sim:/tb_CPU/dut/sximm5 \
+sim:/tb_CPU/dut/sximm8 \
+sim:/tb_CPU/dut/readnum \
+sim:/tb_CPU/dut/writenum \
+sim:/tb_CPU/dut/opcode \
+sim:/tb_CPU/dut/nsel \
+sim:/tb_CPU/dut/loada \
+sim:/tb_CPU/dut/loadb \
+sim:/tb_CPU/dut/loadc \
+sim:/tb_CPU/dut/loads \
+sim:/tb_CPU/dut/asel \
+sim:/tb_CPU/dut/bsel \
+sim:/tb_CPU/dut/write \
+sim:/tb_CPU/dut/load_pc \
+sim:/tb_CPU/dut/reset_pc \
+sim:/tb_CPU/dut/load_ir \
+sim:/tb_CPU/dut/addr_sel \
+sim:/tb_CPU/dut/pc_out \
+sim:/tb_CPU/dut/next_pc
 run -all
-# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_fsm.sv(26)
-#    Time: 125 ps  Iteration: 0  Instance: /tb_FSM
-# Break in Module tb_FSM at D:/UBC-CPEN-211/Lab-7/tb_fsm.sv line 26
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_cpu.sv(51)
+#    Time: 105 ps  Iteration: 0  Instance: /tb_CPU
+# Break in Module tb_CPU at D:/UBC-CPEN-211/Lab-7/tb_cpu.sv line 51
 # Compile of tb_fsm.sv was successful.
 # Compile of fsm.sv was successful.
-# 2 compiles, 0 failed with no errors.
+# Compile of tb_cpu.sv was successful.
+# Compile of Add_Sub_Ovf.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of decoder.sv was successful.
+# Compile of dishex.sv was successful.
+# Compile of Ins_Dec.sv was successful.
+# Compile of Multi_bit_adder.sv was successful.
+# Compile of mux_8in.sv was successful.
+# Compile of reg_load.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 15 compiles, 0 failed with no errors.
 restart
-# Loading work.tb_FSM
+# Loading work.tb_CPU
+# Loading work.CPU
+# Loading work.reg_load
+# Loading work.Ins_Dec
 # Loading work.FSM
+# Loading work.Datapath
+# Loading work.regfile
+# Loading work.decoder
+# Loading work.mux_8in
+# Loading work.shifter
+# Loading work.alu
+# Loading work.AddSubOvf
+# Loading work.Mubi_adder
 run -all
-# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_fsm.sv(26)
-#    Time: 125 ps  Iteration: 0  Instance: /tb_FSM
-# Break in Module tb_FSM at D:/UBC-CPEN-211/Lab-7/tb_fsm.sv line 26
+# ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_cpu.sv(50)
+#    Time: 245 ps  Iteration: 0  Instance: /tb_CPU
+# Break in Module tb_CPU at D:/UBC-CPEN-211/Lab-7/tb_cpu.sv line 50

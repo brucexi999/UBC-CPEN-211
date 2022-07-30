@@ -1,16 +1,17 @@
-module CPU (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
-	input clk, reset, s; 
+module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
+	input clk, reset; 
 	input [15:0] in;
 	output logic [15:0] out;
 	output logic N, V, Z, w;
 	output logic [1:0] mem_cmd;  
+	output logic [8:0] mem_addr; 
 	
 	logic [15:0] ins_out;
 	logic [1:0] ALUop, shift, op, vsel;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel;
 	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel;
-	logic [8:0] pc_out, next_pc, mem_addr; 
+	logic [8:0] pc_out, next_pc; 
 
 	// The instruction register.
 	reg_load ins_reg (
@@ -39,7 +40,6 @@ module CPU (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 	FSM fsm (
 		.clk (clk),
 		.rst (reset),
-		.s (s),
 		.w (w),
 		.opcode (opcode),
 		.op (op),
@@ -95,8 +95,6 @@ module CPU (clk, reset, s, in, out, N, V, Z, w, mem_cmd);
 			default: next_pc = 9'bz; 
 		endcase
 	end
-	
-	assign  
 
 	// Addr mux.
 	always_comb begin : addr_mux
