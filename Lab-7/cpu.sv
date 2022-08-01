@@ -74,7 +74,7 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.loads (loads),
 		.writenum (writenum),
 		.write (write),
-		.mdata (),
+		.mdata (in),
 		.sximm8 (sximm8),
 		.sximm5 (sximm5),
 		.PC (),
