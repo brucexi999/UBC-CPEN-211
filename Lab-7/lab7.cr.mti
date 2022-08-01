@@ -26,6 +26,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	CPU
 
+} {} {}} D:/UBC-CPEN-211/Lab-7/tb_cpu.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-7/tb_cpu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_CPU
+
+Top level modules:
+	tb_CPU
+
 } {} {}} D:/UBC-CPEN-211/Lab-7/dishex.sv {1 {vlog -work work -sv -stats=none D:/UBC-CPEN-211/Lab-7/dishex.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module dishex

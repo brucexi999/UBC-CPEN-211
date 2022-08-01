@@ -104,3 +104,5 @@ run -all
 # ** Note: $stop    : D:/UBC-CPEN-211/Lab-7/tb_cpu.sv(50)
 #    Time: 245 ps  Iteration: 0  Instance: /tb_CPU
 # Break in Module tb_CPU at D:/UBC-CPEN-211/Lab-7/tb_cpu.sv line 50
+# End time: 19:53:25 on Jul 30,2022, Elapsed time: 4:14:29
+# Errors: 0, Warnings: 0
