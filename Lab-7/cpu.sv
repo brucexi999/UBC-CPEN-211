@@ -10,8 +10,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	logic [1:0] ALUop, shift, op, vsel;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel;
-	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel;
-	logic [8:0] pc_out, next_pc; 
+	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel, load_addr;
+	logic [8:0] pc_out, next_pc, data_addr_out, data_addr_in; 
 
 	// The instruction register.
 	reg_load ins_reg (
@@ -56,7 +56,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.load_pc (load_pc),
 		.reset_pc (reset_pc),
 		.addr_sel (addr_sel),
-		.mem_cmd (mem_cmd)
+		.mem_cmd (mem_cmd),
+		.load_addr (load_addr)
 	);
 
 	// The datapath. 
@@ -99,10 +100,18 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	// Addr mux.
 	always_comb begin : addr_mux
 		case (addr_sel)
-			1'b0: mem_addr = 9'b0;
+			1'b0: mem_addr = data_addr_out;
 			1'b1: mem_addr = pc_out; 
 			default: mem_addr = 9'bz; 
 		endcase
+	end
+
+	// Data address register. 
+	assign data_addr_in = out[8:0]; 
+
+	always_ff @ (posedge clk) begin
+		if (load_addr)
+			data_addr_out <= data_addr_in; 
 	end
 
 	
