@@ -24,7 +24,10 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         reset, 
         if1, 
         if2, 
-        update_pc
+        update_pc, 
+        add_a_sximm5, 
+        read_mem,
+        save_mem_rd
     } state;
     
     always_ff @ (posedge clk) begin
@@ -46,6 +49,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     w <= 1;
                     reset_pc <= 1;
                     load_pc <= 1;
+                    load_addr <= 0;
+                    mem_cmd <= 2'b10; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing
                     state <= if1; 
                 end
 
@@ -64,6 +69,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     reset_pc <= 0;
                     load_pc <= 0; 
                     addr_sel <= 1;
+                    load_addr <= 0;
                     mem_cmd <= 2'b01; // mem_cmd == 2'b01 as the read command to memory.
                     state <= if2;
                 end
@@ -87,8 +93,10 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     load_pc <= 0; 
                     w <= 0;
-                    if (opcode == 3'b110 && op == 2'b10)
+                    if ({opcode, op} == 5'b11010)
                         state <= move_save;
+                    else if ({opcode, op} == 5'b01100)
+                        state <= read_rn_load_a;
                     else 
                         state <= read_rm_load_b;
                 end
@@ -136,6 +144,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loadb <= 0;
                     if ({opcode,op} == 5'b10101)
                         state <= sub_ab;
+                    else if ({opcode, op} == 5'b01100)
+                        state <= add_a_sximm5; 
                     else
                         state <= add_and_ab;
                 end
@@ -158,6 +168,35 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loads <= 1;
                     state <= if1;
                 end
+
+                add_a_sximm5:
+                begin
+                    loada <= 0;
+                    asel <= 0;
+                    bsel <= 1;
+                    loadc <= 1;
+                    state <= read_mem; 
+                end
+
+                read_mem:
+                begin
+                    loadc <= 0;
+                    load_addr <= 1;
+                    addr_sel <= 0;
+                    mem_cmd <= 2'b01;
+                    state <= save_mem_rd; 
+                end
+
+                save_mem_rd:
+                begin
+                    load_addr <= 0;
+                    mem_cmd <= 2'b10; 
+                    vsel <= 2'b01;
+                    nsel <= 3'b010;
+                    write <= 1;
+                    state <= if1;
+                end
+
             endcase 
         end
 
