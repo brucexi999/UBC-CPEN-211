@@ -27,6 +27,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         update_pc, 
         add_a_sximm5, 
         read_mem,
+        get_mem_data,
         save_mem_rd
     } state;
     
@@ -182,14 +183,19 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loadc <= 0;
                     load_addr <= 1;
-                    addr_sel <= 0;
+                    addr_sel <= 0;  
+                    state <= get_mem_data; 
+                end
+
+                get_mem_data:
+                begin
+                    load_addr <= 0;
                     mem_cmd <= 2'b01;
                     state <= save_mem_rd; 
                 end
 
                 save_mem_rd:
                 begin
-                    load_addr <= 0;
                     mem_cmd <= 2'b10; 
                     vsel <= 2'b01;
                     nsel <= 3'b010;
