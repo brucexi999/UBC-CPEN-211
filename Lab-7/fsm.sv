@@ -26,9 +26,11 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         if2, 
         update_pc, 
         add_a_sximm5, 
-        read_mem,
+        load_data_addr,
         get_mem_data,
-        save_mem_rd
+        save_mem_rd, 
+        read_rd_load_b, 
+
     } state;
     
     always_ff @ (posedge clk) begin
@@ -96,7 +98,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     w <= 0;
                     if ({opcode, op} == 5'b11010)
                         state <= move_save;
-                    else if ({opcode, op} == 5'b01100)
+                    else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= read_rn_load_a;
                     else 
                         state <= read_rm_load_b;
@@ -145,7 +147,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loadb <= 0;
                     if ({opcode,op} == 5'b10101)
                         state <= sub_ab;
-                    else if ({opcode, op} == 5'b01100)
+                    else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= add_a_sximm5; 
                     else
                         state <= add_and_ab;
@@ -176,15 +178,19 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     asel <= 0;
                     bsel <= 1;
                     loadc <= 1;
-                    state <= read_mem; 
+                    state <= load_data_addr; 
                 end
 
-                read_mem:
+                load_data_addr:
                 begin
                     loadc <= 0;
                     load_addr <= 1;
                     addr_sel <= 0;  
-                    state <= get_mem_data; 
+                    mem_cmd <= 2'b10; // At this cycle we don't send any meaningful mem_cmd. 
+                    if ({opcode,op} == 5'b10000)
+                        state <= read_rd_load_b;
+                    else if (({opcode,op} == 5'b01100))
+                        state <= get_mem_data; 
                 end
 
                 get_mem_data:
@@ -201,6 +207,13 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b010;
                     write <= 1;
                     state <= if1;
+                end
+
+                read_rd_load_b:
+                begin
+                    nsel <= 3'b010;
+                    loadb <= 1;
+
                 end
 
             endcase 
