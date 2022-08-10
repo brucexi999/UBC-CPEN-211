@@ -30,7 +30,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         get_mem_data,
         save_mem_rd, 
         read_rd_load_b, 
-
+        b_to_output,
+        write_mem
     } state;
     
     always_ff @ (posedge clk) begin
@@ -189,7 +190,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     mem_cmd <= 2'b10; // At this cycle we don't send any meaningful mem_cmd. 
                     if ({opcode,op} == 5'b10000)
                         state <= read_rd_load_b;
-                    else if (({opcode,op} == 5'b01100))
+                    else if ({opcode,op} == 5'b01100)
                         state <= get_mem_data; 
                 end
 
@@ -213,9 +214,25 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     nsel <= 3'b010;
                     loadb <= 1;
-
+                    state <= b_to_output;
                 end
 
+                b_to_output: // At this cycle, b is updated with the value in Rd. 
+                begin
+                    loadb <= 0;
+                    asel <= 1;
+                    bsel <= 0;
+                    loadc <= 1;
+                    state <= write_mem;
+                end
+
+                write_mem: // At this cycle, c is updaetd with the value in Rd. write_data to the memory is ready. At the same time we set addr_sel to 0 to provide the write address. And set mem_cmd to 2'b00 indicating a write. 
+                begin
+                    loadc <= 0;
+                    addr_sel <= 0;
+                    mem_cmd <= 2'b00;
+                    state <= if1; 
+                end 
             endcase 
         end
 

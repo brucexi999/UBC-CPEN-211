@@ -33,7 +33,7 @@ module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
         .clk (~KEY[0]),
         .read_address (mem_addr[7:0]),
         .write_address (mem_addr[7:0]),
-        .write (),
+        .write (mem_cmd == 2'b00 && mem_addr[8] == 1'b0),
         .din (datapath_out),
         .dout (dout)
     ); 
