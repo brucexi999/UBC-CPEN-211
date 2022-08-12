@@ -49,10 +49,12 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     bsel <= 0;
                     vsel <= 2'b0;
                     nsel <= 3'b0; 
+                    addr_sel <= 0;
                     write <= 0; 
                     w <= 1;
                     reset_pc <= 1;
                     load_pc <= 1;
+                    load_ir <= 0;
                     load_addr <= 0;
                     mem_cmd <= 2'b10; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing
                     state <= if1; 
@@ -214,6 +216,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     nsel <= 3'b010;
                     loadb <= 1;
+                    load_addr <= 0; 
                     state <= b_to_output;
                 end
 
