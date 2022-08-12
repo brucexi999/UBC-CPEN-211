@@ -29,6 +29,9 @@ module tb_FSM  ();
         //LDR
         {opcode, op} = 5'b01100; #200; 
 
+        //HALT
+        opcode = 3'b111; #100; 
+
         $stop; 
     end
 endmodule

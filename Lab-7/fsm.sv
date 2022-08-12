@@ -31,7 +31,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         save_mem_rd, 
         read_rd_load_b, 
         b_to_output,
-        write_mem
+        write_mem, 
+        halt
     } state;
     
     always_ff @ (posedge clk) begin
@@ -103,6 +104,9 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= move_save;
                     else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= read_rn_load_a;
+                    
+                    else if (opcode == 3'b111)
+                        state <= halt; 
                     else 
                         state <= read_rm_load_b;
                 end
@@ -236,6 +240,13 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     mem_cmd <= 2'b00;
                     state <= if1; 
                 end 
+
+                halt:
+                begin
+                    reset_pc <= 1;
+                    state <= halt;
+                end
+                
             endcase 
         end
 
