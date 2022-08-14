@@ -1,5 +1,13 @@
-package stuff;
-typedef enum {
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr);
+    input clk, rst;
+    input [2:0] opcode;
+    input [1:0] op;
+    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
+    output logic [2:0] nsel;
+    output logic [1:0] vsel, mem_cmd;
+
+    // The state machine that supports --6-- instruction.
+    enum {
         // Instruction 1
         decode,
         move_save,
@@ -23,7 +31,8 @@ typedef enum {
         save_mem_rd, 
         read_rd_load_b, 
         b_to_output,
-        write_mem
+        write_mem, 
+        halt
     } state;
     
     always_ff @ (posedge clk) begin
@@ -191,7 +200,6 @@ typedef enum {
                 get_mem_data:
                 begin
                     load_addr <= 0;
-                    
                     state <= save_mem_rd; 
                 end
 
@@ -228,6 +236,13 @@ typedef enum {
                     mem_cmd <= 2'b00;
                     state <= if1; 
                 end 
+
+                halt:
+                begin
+                    reset_pc <= 1;
+                    state <= halt;
+                end
+                
             endcase 
         end
 
