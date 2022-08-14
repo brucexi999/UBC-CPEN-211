@@ -5,7 +5,6 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
     output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
     output logic [2:0] nsel;
     output logic [1:0] vsel, mem_cmd;
-
     // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
@@ -52,7 +51,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b0; 
                     addr_sel <= 0;
                     write <= 0; 
-                    w <= 1;
+                    w <= 0;
                     reset_pc <= 1;
                     load_pc <= 1;
                     load_ir <= 0;
@@ -72,7 +71,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     vsel <= 2'b0;
                     nsel <= 3'b0; 
                     write <= 0; 
-                    w <= 1;
+                    w <= 0;
                     reset_pc <= 0;
                     load_pc <= 0; 
                     addr_sel <= 1;
@@ -104,6 +103,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= move_save;
                     else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= read_rn_load_a;
+                    else if (opcode == 3'b111)
+                        state <= halt; 
                     else 
                         state <= read_rm_load_b;
                 end
@@ -239,6 +240,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
 
                 halt:
                 begin
+                    w <= 1; 
                     reset_pc <= 1;
                     state <= halt;
                 end

@@ -3,14 +3,29 @@ module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
     input [9:0] SW;
     output [9:0] LEDR;
     output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-
     logic [1:0] mem_cmd; 
     logic [8:0] mem_addr; 
     logic [15:0] dout, read_data, datapath_out; 
     logic N, V, Z; 
 
+
+
+    // Memory mapped IO.
+    Tristate tri_drv_2 (
+      .in ({8'b0, SW[7:0]}),
+      .out (read_data),
+      .enable (mem_addr == 9'b101000000 && mem_cmd == 2'b01)
+    );
+
+    reg_load # (8) REG (
+      .a (datapath_out[7:0]),
+      .b (LEDR[7:0]),
+      .load (mem_addr == 9'b100000000 && mem_cmd == 2'b0),
+      .clk (~KEY[0])
+    );
+
     // Memory control unit.
-    Tristate tri_drv (
+    Tristate tri_drv_1 (
         .in (dout),
         .out (read_data),
         .enable ((mem_cmd == 2'b01 && mem_addr[8] == 1'b0))

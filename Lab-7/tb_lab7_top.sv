@@ -17,7 +17,7 @@ module tb_lab7_top ();
     initial begin
         KEY[1] = 1; #5; 
         KEY[1] = 0; #5;
-        KEY[1] = 1; #500; 
+        KEY[1] = 1; SW = 10'b0000000001; #1000; 
 
         $stop;
     end
