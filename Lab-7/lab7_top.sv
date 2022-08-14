@@ -20,7 +20,7 @@ module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
     reg_load # (8) REG (
       .a (datapath_out[7:0]),
       .b (LEDR[7:0]),
-      .load (mem_addr == 9'b100000000 && mem_cmd == 2'b0),
+      .load (mem_addr == 9'b100000000 && mem_cmd == 2'b10),
       .clk (~KEY[0])
     );
 
@@ -48,7 +48,7 @@ module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
         .clk (~KEY[0]),
         .read_address (mem_addr[7:0]),
         .write_address (mem_addr[7:0]),
-        .write (mem_cmd == 2'b00 && mem_addr[8] == 1'b0),
+        .write (mem_cmd == 2'b10 && mem_addr[8] == 1'b0),
         .din (datapath_out),
         .dout (dout)
     ); 

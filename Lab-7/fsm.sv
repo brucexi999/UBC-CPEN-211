@@ -56,7 +56,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     load_pc <= 1;
                     load_ir <= 0;
                     load_addr <= 0;
-                    mem_cmd <= 2'b10; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing
+                    mem_cmd <= 2'b00; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing
                     state <= if1; 
                 end
 
@@ -90,7 +90,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     load_pc <= 1; 
                     load_ir <= 0; 
-                    mem_cmd <= 2'b10; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing. 
+                    mem_cmd <= 2'b00; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing. 
                     state <= decode;
                 end
 
@@ -191,7 +191,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loadc <= 0;
                     load_addr <= 1;
                     addr_sel <= 0;  
-                    mem_cmd <= 2'b10; // At this cycle we don't send any meaningful mem_cmd. 
+                    mem_cmd <= 2'b00; // At this cycle we don't send any meaningful mem_cmd. 
                     if ({opcode,op} == 5'b10000)
                         state <= read_rd_load_b;
                     else if ({opcode,op} == 5'b01100)
@@ -234,7 +234,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loadc <= 0;
                     addr_sel <= 0;
-                    mem_cmd <= 2'b00;
+                    mem_cmd <= 2'b10;
                     state <= if1; 
                 end 
 
