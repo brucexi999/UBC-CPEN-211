@@ -1,13 +1,5 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr);
-    input clk, rst;
-    input [2:0] opcode;
-    input [1:0] op;
-    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
-    output logic [2:0] nsel;
-    output logic [1:0] vsel, mem_cmd;
-
-    // The state machine that supports --6-- instruction.
-    enum {
+package stuff;
+typedef enum {
         // Instruction 1
         decode,
         move_save,
@@ -33,7 +25,19 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         b_to_output,
         write_mem, 
         halt
-    } state;
+} states;
+endpackage 
+
+module FSM import stuff::*; 
+    (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, state);
+    input clk, rst;
+    input [2:0] opcode;
+    input [1:0] op;
+    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
+    output logic [2:0] nsel;
+    output logic [1:0] vsel, mem_cmd;
+    output states state;
+    // The state machine that supports --6-- instruction.
     
     always_ff @ (posedge clk) begin
         if (rst)
@@ -203,13 +207,13 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 get_mem_data:
                 begin
                     load_addr <= 0;
-                    mem_cmd <= 2'b01;
+                    
                     state <= save_mem_rd; 
                 end
 
                 save_mem_rd:
                 begin
-                    mem_cmd <= 2'b10; 
+                    mem_cmd <= 2'b01; 
                     vsel <= 2'b01;
                     nsel <= 3'b010;
                     write <= 1;
@@ -246,7 +250,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     reset_pc <= 1;
                     state <= halt;
                 end
-                
+
             endcase 
         end
 

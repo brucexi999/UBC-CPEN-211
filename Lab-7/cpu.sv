@@ -1,4 +1,35 @@
-module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
+package stuff;
+typedef enum {
+        // Instruction 1
+        decode,
+        move_save,
+        // Instruction 2, 6
+        read_rm_load_b,
+        shift_b,
+        feedback_save_rd,
+        // Instruciton 3, 5
+        read_rn_load_a,
+        add_and_ab,
+        // Instruction 4
+        sub_ab, 
+        // Lab 7
+        reset, 
+        if1, 
+        if2, 
+        update_pc, 
+        add_a_sximm5, 
+        load_data_addr,
+        get_mem_data,
+        save_mem_rd, 
+        read_rd_load_b, 
+        b_to_output,
+        write_mem, 
+        halt
+} states;
+endpackage 
+
+
+module CPU import stuff::*; (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	input clk, reset; 
 	input [15:0] in;
 	output logic [15:0] out;
@@ -12,7 +43,7 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	logic [2:0] readnum, writenum, opcode, nsel;
 	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel, load_addr;
 	logic [8:0] pc_out, next_pc, data_addr_out, data_addr_in; 
-
+	states state; 
 	// The instruction register.
 	reg_load ins_reg (
 		.a (in), 
@@ -57,7 +88,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.reset_pc (reset_pc),
 		.addr_sel (addr_sel),
 		.mem_cmd (mem_cmd),
-		.load_addr (load_addr)
+		.load_addr (load_addr),
+		.state (state)
 	);
 
 	// The datapath. 

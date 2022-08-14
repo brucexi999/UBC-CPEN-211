@@ -1,8 +1,8 @@
 module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
     input [3:0] KEY;
     input [9:0] SW;
-    output [9:0] LEDR;
-    output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
+    output logic [9:0] LEDR;
+    output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 
     logic [1:0] mem_cmd; 
     logic [8:0] mem_addr; 
@@ -11,8 +11,8 @@ module lab7_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
 
     // Memory control unit.
     Tristate tri_drv (
-        .in (dout)
-        .out (read_data)
+        .in (dout),
+        .out (read_data),
         .enable ((mem_cmd == 2'b01 && mem_addr[8] == 1'b0))
     );
 
