@@ -23,21 +23,8 @@ typedef enum {
         save_mem_rd, 
         read_rd_load_b, 
         b_to_output,
-        write_mem, 
-        halt
-} states;
-endpackage 
-
-module FSM import stuff::*; 
-    (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, state);
-    input clk, rst;
-    input [2:0] opcode;
-    input [1:0] op;
-    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
-    output logic [2:0] nsel;
-    output logic [1:0] vsel, mem_cmd;
-    output states state;
-    // The state machine that supports --6-- instruction.
+        write_mem
+    } state;
     
     always_ff @ (posedge clk) begin
         if (rst)
@@ -108,9 +95,6 @@ module FSM import stuff::*;
                         state <= move_save;
                     else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= read_rn_load_a;
-                    
-                    else if (opcode == 3'b111)
-                        state <= halt; 
                     else 
                         state <= read_rm_load_b;
                 end
@@ -244,13 +228,6 @@ module FSM import stuff::*;
                     mem_cmd <= 2'b00;
                     state <= if1; 
                 end 
-
-                halt:
-                begin
-                    reset_pc <= 1;
-                    state <= halt;
-                end
-
             endcase 
         end
 
