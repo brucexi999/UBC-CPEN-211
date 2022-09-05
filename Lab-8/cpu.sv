@@ -78,7 +78,7 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.mdata (in),
 		.sximm8 (sximm8),
 		.sximm5 (sximm5),
-		.PC (),
+		.PC (next_pc[7:0]),
 		.status_out ({Z, V, N}),
 		.datapath_out (out)
 	);
