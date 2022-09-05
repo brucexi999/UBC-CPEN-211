@@ -1,7 +1,8 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr);
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N);
     input clk, rst;
     input [2:0] opcode;
     input [1:0] op;
+    input Z, V, N; 
     output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
     output logic [2:0] nsel;
     output logic [1:0] vsel, mem_cmd;
