@@ -1,10 +1,10 @@
-module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcode, op);
+module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcode, op, branch_condition);
 	
 	input [15:0] in; 
 	input [2:0] nsel; 
 	output logic [1:0] ALUop, shift, op; 
 	output logic [15:0] sximm5, sximm8; 
-	output logic [2:0] readnum, writenum, opcode;
+	output logic [2:0] readnum, writenum, opcode, branch_condition;
 	
 	logic [2:0] Rn, Rd, Rm, mux_out; 
 	logic [4:0] imm5; 
@@ -21,6 +21,7 @@ module Ins_Dec (in, nsel, ALUop, sximm5, sximm8, shift, readnum, writenum, opcod
 	assign opcode = in[15:13]; 
 	assign readnum = mux_out;
 	assign writenum = mux_out;
+	assign branch_condition = in[10:8]; 
 	
 	// nsel Mux
 	always_comb begin
