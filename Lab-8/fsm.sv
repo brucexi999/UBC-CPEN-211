@@ -1,11 +1,11 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N);
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition);
     input clk, rst;
-    input [2:0] opcode;
+    input [2:0] opcode, branch_condition;
     input [1:0] op;
     input Z, V, N; 
-    output logic w, loada, loadb, loadc, loads, asel, bsel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
+    output logic w, loada, loadb, loadc, loads, asel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
     output logic [2:0] nsel;
-    output logic [1:0] vsel, mem_cmd;
+    output logic [1:0] vsel, mem_cmd, bsel;
     // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
@@ -32,7 +32,13 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         read_rd_load_b, 
         b_to_output,
         write_mem, 
-        halt
+        halt,
+        // Lab 8 branch instructions, B just goes directly from decode to move_save, there is no flag-checking involved.
+        BEQ, // Flag-checking states.
+        BNE,
+        BLT, 
+        BLE,
+        save_next_pc 
     } state;
     
     always_ff @ (posedge clk) begin
@@ -47,7 +53,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loadc <= 0;
                     loads <= 0;
                     asel <= 0;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     vsel <= 2'b0;
                     nsel <= 3'b0; 
                     addr_sel <= 0;
@@ -68,7 +74,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     loadc <= 0;
                     loads <= 0;
                     asel <= 0;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     vsel <= 2'b0;
                     nsel <= 3'b0; 
                     write <= 0; 
@@ -91,7 +97,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     load_pc <= 1; 
                     load_ir <= 0; 
-                    mem_cmd <= 2'b00; // mem_cmd == 2'b10 as the command for nothing. Neither reading nor writing. 
+                    mem_cmd <= 2'b00; // mem_cmd == 2'b00 as the command for nothing. Neither reading nor writing. 
                     state <= decode;
                 end
 
@@ -105,7 +111,17 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
                         state <= read_rn_load_a;
                     else if (opcode == 3'b111)
-                        state <= halt; 
+                        state <= halt;
+                    else if ({opcode, branch_condition} == 6'b001000)
+                        state <= move_save;
+                    else if ({opcode, branch_condition} == 6'b001001)
+                        state <= BEQ;
+                    else if ({opcode, branch_condition} == 6'b001010)
+                        state <= BNE;
+                    else if ({opcode, branch_condition} == 6'b001011)
+                        state <= BLT;
+                    else if ({opcode, branch_condition} == 6'b001100)
+                        state <= BLE;
                     else 
                         state <= read_rm_load_b;
                 end
@@ -123,7 +139,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b100;
                     loadb <= 1;
                     if ({opcode, op} == 5'b11000 || {opcode, op} == 5'b10111)
-                        state <= shift_b;
+                        state <= shift_b; 
                     else 
                         state <= read_rn_load_a;
                 end
@@ -131,7 +147,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 shift_b:
                 begin
                     loadb <= 0;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     asel <= 1;
                     loadc <= 1;
                     state <= feedback_save_rd;
@@ -146,15 +162,20 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     state <= if1;
                 end
 
-                read_rn_load_a:
+                read_rn_load_a: 
                 begin
+                    write <= 0;
                     nsel <= 3'b001;
                     loada <= 1;
                     loadb <= 0;
                     if ({opcode,op} == 5'b10101)
                         state <= sub_ab;
                     else if ({opcode, op} == 5'b01100 || {opcode, op} == 5'b10000)
-                        state <= add_a_sximm5; 
+                        state <= add_a_sximm5;
+                    else if (opcode == 3'b001) begin
+                        bsel <= 2'b10; // Select sximm8 as b. 
+                        state <=  
+                    end
                     else
                         state <= add_and_ab;
                 end
@@ -163,7 +184,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loada <= 0;
                     asel <= 0;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     loadc <= 1;
                     state <= feedback_save_rd;
                 end
@@ -172,7 +193,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loada <= 0;
                     asel <= 0;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     loadc <= 1;
                     loads <= 1;
                     state <= if1;
@@ -182,7 +203,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loada <= 0;
                     asel <= 0;
-                    bsel <= 1;
+                    bsel <= 2'b01;
                     loadc <= 1;
                     state <= load_data_addr; 
                 end
@@ -226,7 +247,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loadb <= 0;
                     asel <= 1;
-                    bsel <= 0;
+                    bsel <= 2'b0;
                     loadc <= 1;
                     state <= write_mem;
                 end
@@ -246,6 +267,14 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     state <= halt;
                 end
                 
+                save_next_pc: 
+                begin
+                    nsel <= 3'b001; 
+                    write <= 1;
+                    vsel <= 2'b11; // Selective the PC port of datapath. 
+                    state <= read_rn_load_a;
+                end
+
             endcase 
         end
 
