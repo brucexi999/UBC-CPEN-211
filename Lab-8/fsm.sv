@@ -1,9 +1,9 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition);
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc);
     input clk, rst;
     input [2:0] opcode, branch_condition;
     input [1:0] op;
     input Z, V, N; 
-    output logic w, loada, loadb, loadc, loads, asel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr;
+    output logic w, loada, loadb, loadc, loads, asel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr, sel_pc;
     output logic [2:0] nsel;
     output logic [1:0] vsel, mem_cmd, bsel;
     // The state machine that supports --6-- instruction.
@@ -38,7 +38,9 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         BNE,
         BLT, 
         BLE,
-        save_next_pc 
+        save_pc, 
+        update_branch_pc,
+        reload_branch_pc
     } state;
     
     always_ff @ (posedge clk) begin
@@ -60,6 +62,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     write <= 0; 
                     w <= 0;
                     reset_pc <= 1;
+                    sel_pc <= 0;
                     load_pc <= 1;
                     load_ir <= 0;
                     load_addr <= 0;
@@ -80,6 +83,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     write <= 0; 
                     w <= 0;
                     reset_pc <= 0;
+                    sel_pc <= 0;
                     load_pc <= 0; 
                     addr_sel <= 1;
                     load_addr <= 0;
@@ -113,7 +117,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     else if (opcode == 3'b111)
                         state <= halt;
                     else if ({opcode, branch_condition} == 6'b001000)
-                        state <= move_save;
+                        state <= save_pc;
                     else if ({opcode, branch_condition} == 6'b001001)
                         state <= BEQ;
                     else if ({opcode, branch_condition} == 6'b001010)
@@ -174,7 +178,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= add_a_sximm5;
                     else if (opcode == 3'b001) begin
                         bsel <= 2'b10; // Select sximm8 as b. 
-                        state <=  
+                        state <= update_branch_pc; 
                     end
                     else
                         state <= add_and_ab;
@@ -267,13 +271,29 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     state <= halt;
                 end
                 
-                save_next_pc: 
+                save_pc: 
                 begin
                     nsel <= 3'b001; 
                     write <= 1;
                     vsel <= 2'b11; // Selective the PC port of datapath. 
                     state <= read_rn_load_a;
                 end
+
+                update_branch_pc:
+                begin
+                    loadc <= 1;
+                    loada <= 0;
+                    sel_pc <= 1;
+                    state <= reload_branch_pc;
+                end
+
+                reload_branch_pc:
+                begin
+                    loadc <= 0;
+                    load_pc <= 1;
+                    state <= if1;
+                end
+
 
             endcase 
         end
