@@ -40,7 +40,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         BLE,
         save_pc, 
         update_branch_pc,
-        reload_branch_pc
+        reload_branch_pc, 
+        dummy1
     } state;
     
     always_ff @ (posedge clk) begin
@@ -168,7 +169,6 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
 
                 read_rn_load_a: 
                 begin
-                    write <= 0;
                     nsel <= 3'b001;
                     loada <= 1;
                     loadb <= 0;
@@ -276,7 +276,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b001; 
                     write <= 1;
                     vsel <= 2'b11; // Selective the PC port of datapath. 
-                    state <= read_rn_load_a;
+                    state <= dummy1;
                 end
 
                 update_branch_pc:
@@ -294,6 +294,11 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     state <= if1;
                 end
 
+                dummy1:
+                begin
+                    write <= 0; 
+                    state <= read_rn_load_a; 
+                end
 
             endcase 
         end
