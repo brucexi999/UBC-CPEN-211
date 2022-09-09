@@ -7,10 +7,10 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	output logic [8:0] mem_addr; 
 	
 	logic [15:0] ins_out;
-	logic [1:0] ALUop, shift, op, vsel;
+	logic [1:0] ALUop, shift, op, vsel, sel_pc, bsel;
 	logic [15:0] sximm5, sximm8;
-	logic [2:0] readnum, writenum, opcode, nsel;
-	logic loada, loadb, loadc, loads, asel, bsel, write, load_pc, reset_pc, load_ir, addr_sel, load_addr;
+	logic [2:0] readnum, writenum, opcode, nsel, branch_condition;
+	logic loada, loadb, loadc, loads, asel, write, load_pc, load_ir, addr_sel, load_addr;
 	logic [8:0] pc_out, next_pc, data_addr_out, data_addr_in; 
 
 	// The instruction register.
@@ -32,7 +32,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.readnum (readnum),
 		.writenum (writenum),
 		.opcode (opcode),
-		.op (op)
+		.op (op), 
+		.branch_condition (branch_condition)
 	);
 
 
@@ -54,10 +55,14 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.write (write),
 		.load_ir (load_ir),
 		.load_pc (load_pc),
-		.reset_pc (reset_pc),
 		.addr_sel (addr_sel),
 		.mem_cmd (mem_cmd),
-		.load_addr (load_addr)
+		.load_addr (load_addr), 
+		.Z (Z), 
+		.V (V), 
+		.N (N), 
+		.branch_condition (branch_condition),
+		.sel_pc (sel_pc)
 	);
 
 	// The datapath. 
@@ -78,7 +83,7 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.mdata (in),
 		.sximm8 (sximm8),
 		.sximm5 (sximm5),
-		.PC (next_pc[7:0]),
+		.PC (pc_out[7:0]),
 		.status_out ({Z, V, N}),
 		.datapath_out (out)
 	);
@@ -90,9 +95,10 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 	end
 
 	always_comb begin : pc_mux
-		case (reset_pc)
-			1'b0: next_pc = pc_out + 1'b1;
-			1'b1: next_pc = 9'b0;  
+		case (sel_pc)
+			2'b00: next_pc = 9'b0;
+			2'b01: next_pc = pc_out + 9'b000000001;
+			2'b10: next_pc = out[8:0];  
 			default: next_pc = 9'bz; 
 		endcase
 	end

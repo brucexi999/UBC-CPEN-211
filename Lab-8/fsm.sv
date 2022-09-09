@@ -1,11 +1,11 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc);
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc);
     input clk, rst;
     input [2:0] opcode, branch_condition;
     input [1:0] op;
     input Z, V, N; 
-    output logic w, loada, loadb, loadc, loads, asel, write, load_pc, load_ir, reset_pc, addr_sel, load_addr, sel_pc;
+    output logic w, loada, loadb, loadc, loads, asel, write, load_pc, load_ir, addr_sel, load_addr;
     output logic [2:0] nsel;
-    output logic [1:0] vsel, mem_cmd, bsel;
+    output logic [1:0] vsel, mem_cmd, bsel, sel_pc;
     // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
@@ -62,8 +62,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     addr_sel <= 0;
                     write <= 0; 
                     w <= 0;
-                    reset_pc <= 1;
-                    sel_pc <= 0;
+                    sel_pc <= 2'b0;
                     load_pc <= 1;
                     load_ir <= 0;
                     load_addr <= 0;
@@ -83,8 +82,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b0; 
                     write <= 0; 
                     w <= 0;
-                    reset_pc <= 0;
-                    sel_pc <= 0;
+                    sel_pc <= 2'b01;
                     load_pc <= 0; 
                     addr_sel <= 1;
                     load_addr <= 0;
@@ -267,7 +265,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 halt:
                 begin
                     w <= 1; 
-                    reset_pc <= 1;
+                    sel_pc <= 2'b0;
                     state <= halt;
                 end
                 
@@ -283,12 +281,12 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     loadc <= 1;
                     loada <= 0;
-                    sel_pc <= 1;
                     state <= reload_branch_pc;
                 end
 
                 reload_branch_pc:
                 begin
+                    sel_pc <= 2'b10;
                     loadc <= 0;
                     load_pc <= 1;
                     state <= if1;
