@@ -298,6 +298,38 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     state <= read_rn_load_a; 
                 end
 
+                BEQ:
+                begin
+                    if (Z == 1) 
+                        state <= save_pc;
+                    else 
+                        state <= if1; 
+                end
+
+                BNE:
+                begin
+                    if (Z == 0) 
+                        state <= save_pc;
+                    else 
+                        state <= if1;
+                end
+
+                BLT:
+                begin
+                    if (N != V)
+                        state <= save_pc;
+                    else 
+                        state <= if1;
+                end
+
+                BLE:
+                begin
+                    if (N != V || Z == 1)
+                        state <= save_pc;
+                    else 
+                        state <= if1; 
+                end
+
             endcase 
         end
 
