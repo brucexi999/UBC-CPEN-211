@@ -17,10 +17,17 @@ module tb_CPU ();
     end
 
     initial begin
-        #5; 
-        reset = 1; #30; // Check for fsm's reset and w. 
-        reset = 0; in = {3'b001, 2'b00, 3'b000, 8'b00000100}; // Load the decimal number 1 to register #0. 
-        #1000; // Run the fsm.  
+         
+        reset = 1; #15;  
+        reset = 0; in = {3'b001, 2'b00, 3'b000, 8'b00000100}; // B 
+        #200;   
+
+        reset = 1; #10;  
+        reset = 0; in = {3'b110, 2'b10, 3'b0, 8'b00000001}; #200;
+        in = {3'b110, 2'b10, 3'b001, 8'b00000011}; #200;
+        in = {3'b101, 2'b01, 3'b001, 3'b0, 2'b0, 3'b0}; #200; 
+        in = {3'b001, 2'b00, 3'b001, 8'b00000100}; #200;// B 
+        
 
         $stop;
 

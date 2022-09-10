@@ -8,7 +8,7 @@ module tb_fsm (
     logic [2:0] nsel;
     logic [1:0] vsel, mem_cmd, bsel; 
 
-    FSM dut (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, reset_pc, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc); 
+    FSM dut (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc); 
 
     initial begin
         forever begin
@@ -22,7 +22,10 @@ module tb_fsm (
         rst = 0; opcode = 3'b001; branch_condition = 3'b0; #100; // B (unconditioned)
         
         rst = 1; #20;
-        rst = 0; opcode = 3'b001; branch_condition = 3'b010; Z= 1; #100; // BEQ
+        rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 1; #150; // BEQ
+
+        rst = 1; #20;
+        rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 0; #150; // BEQ
 
         $stop; 
     end
