@@ -27,6 +27,7 @@ module tb_fsm (
         rst = 1; #20;
         rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 0; #150; // BEQ
 
+        // BNE passed. 
         $stop; 
     end
 
