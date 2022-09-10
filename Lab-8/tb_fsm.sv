@@ -20,6 +20,10 @@ module tb_fsm (
     initial begin
         rst = 1; #20;
         rst = 0; opcode = 3'b001; branch_condition = 3'b0; #100; // B (unconditioned)
+        
+        rst = 1; #20;
+        rst = 0; opcode = 3'b001; branch_condition = 3'b010; Z= 1; #100; // BEQ
+
         $stop; 
     end
 
