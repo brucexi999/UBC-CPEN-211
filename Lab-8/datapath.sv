@@ -1,5 +1,5 @@
 module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loadc, loads,
-				writenum, write, mdata, sximm8, PC, sximm5, status_out, datapath_out);
+				writenum, write, mdata, sximm8, PC, sximm5, status_out, datapath_out, reg_out);
 	input clk;
 	input [2:0] readnum, writenum;
 	input loada, loadb, asel, loadc, loads, write;
@@ -8,7 +8,8 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	input [7:0] PC;
 	output logic [2:0] status_out;
 	output logic [15:0] datapath_out;
-	
+	output logic [127:0] reg_out; 
+
 	logic [15:0] data_in, data_out, a_out, b_out, ALU_out, sout, Ain, Bin;
 	logic Z, V, N; 
 	
@@ -24,7 +25,7 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	end
 	
 	// Registers
-	regfile RF (data_in, writenum, write, readnum, clk, data_out);
+	regfile RF (data_in, writenum, write, readnum, clk, data_out, reg_out);
 	
 	// Register #3, #4, #5, #10
 	reg_load #(16) REG_A (data_out, a_out, loada, clk);  

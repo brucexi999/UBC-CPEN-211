@@ -7,7 +7,7 @@ module lab8_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
     logic [8:0] mem_addr; 
     logic [15:0] dout, read_data, datapath_out; 
     logic N, V, Z; 
-
+    logic [15:0] r0, r1, r2, r3, r4, r5, r6, r7; 
 
 
     // Memory mapped IO.
@@ -41,7 +41,8 @@ module lab8_top (KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
         .Z (Z),
         .w (LEDR[9]),
         .mem_cmd (mem_cmd),
-        .mem_addr (mem_addr)
+        .mem_addr (mem_addr),
+        .reg_out ({r7, r6, r5, r4, r3, r2, r1, r0})
     );
 
     RAM ram (

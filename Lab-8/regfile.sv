@@ -1,10 +1,10 @@
-module regfile (data_in, writenum, write, readnum, clk, data_out);
+module regfile (data_in, writenum, write, readnum, clk, data_out, reg_out);
 	input [15:0] data_in;
 	input [2:0] writenum, readnum;
 	input write, clk;
 	output logic [15:0] data_out;
 	logic [7:0] write_dec_out, read_dec_out, load;
-	logic [127:0] reg_out;
+	output logic [127:0] reg_out;
 	
 	decoder #(3,8) Dec1 (writenum, write_dec_out);
 	decoder #(3,8) Dec2 (readnum, read_dec_out);

@@ -1,11 +1,12 @@
-module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
+module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 	input clk, reset; 
 	input [15:0] in;
 	output logic [15:0] out;
 	output logic N, V, Z, w;
 	output logic [1:0] mem_cmd;  
 	output logic [8:0] mem_addr; 
-	
+	output logic [127:0] reg_out; 
+
 	logic [15:0] ins_out;
 	logic [1:0] ALUop, shift, op, vsel, sel_pc, bsel;
 	logic [15:0] sximm5, sximm8;
@@ -85,7 +86,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr);
 		.sximm5 (sximm5),
 		.PC (pc_out[7:0]),
 		.status_out ({Z, V, N}),
-		.datapath_out (out)
+		.datapath_out (out),
+		.reg_out (reg_out)
 	);
 
 	// The program counter.
