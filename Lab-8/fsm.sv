@@ -41,7 +41,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         save_pc, 
         update_branch_pc,
         reload_branch_pc, 
-        dummy1
+        dummy1, 
+        dummy2
     } state;
     
     always_ff @ (posedge clk) begin
@@ -289,8 +290,15 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     sel_pc <= 2'b10;
                     loadc <= 0;
                     load_pc <= 1;
-                    state <= if1;
+                    state <= dummy2;
                 end
+
+                dummy2:
+                begin
+                    
+                    state <= if1; 
+                end
+
 
                 dummy1:
                 begin
