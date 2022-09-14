@@ -8,10 +8,10 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 	output logic [127:0] reg_out; 
 
 	logic [15:0] ins_out;
-	logic [1:0] ALUop, shift, op, vsel, sel_pc, bsel;
+	logic [1:0] ALUop, shift, op, vsel, sel_pc, asel, bsel;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel, branch_condition;
-	logic loada, loadb, loadc, loads, asel, write, load_pc, load_ir, addr_sel, load_addr;
+	logic loada, loadb, loadc, loads, write, load_pc, load_ir, addr_sel, load_addr;
 	logic [8:0] pc_out, next_pc, data_addr_out, data_addr_in; 
 
 	// The instruction register.

@@ -2,8 +2,8 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 				writenum, write, mdata, sximm8, PC, sximm5, status_out, datapath_out, reg_out);
 	input clk;
 	input [2:0] readnum, writenum;
-	input loada, loadb, asel, loadc, loads, write;
-	input [1:0] ALUop, shift, vsel, bsel; 
+	input loada, loadb,  loadc, loads, write;
+	input [1:0] ALUop, shift, vsel, asel, bsel; 
  	input [15:0] mdata, sximm8, sximm5;
 	input [7:0] PC;
 	output logic [2:0] status_out;
@@ -19,7 +19,6 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 			2'b00: data_in = datapath_out;
 			2'b01: data_in = mdata;
 			2'b10: data_in = sximm8;
-			2'b11: data_in = {8'b0, PC};
 			default: data_in = 16'bz; 
 		endcase
 	end
@@ -39,8 +38,9 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 	// Mux #6
 	always_comb begin
 		case (asel)
-			1'b0: Ain = a_out;
-			1'b1: Ain = 16'b0;
+			2'b00: Ain = a_out;
+			2'b01: Ain = 16'b0;
+			2'b10: Ain = {8'b0, PC};
 			default: Ain = 16'bz; 
 		endcase
 	end
