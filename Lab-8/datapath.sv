@@ -19,6 +19,7 @@ module Datapath (clk, readnum, vsel, loada, loadb, shift, asel, bsel, ALUop, loa
 			2'b00: data_in = datapath_out;
 			2'b01: data_in = mdata;
 			2'b10: data_in = sximm8;
+			2'b11: data_in = {8'b0, PC};
 			default: data_in = 16'bz; 
 		endcase
 	end

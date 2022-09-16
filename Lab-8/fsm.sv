@@ -41,7 +41,8 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
         compute_branch_pc, 
         update_branch_pc,
         reload_branch_pc, 
-        dummy2
+        dummy2, 
+        BL
     } state;
     
     always_ff @ (posedge clk) begin
@@ -115,9 +116,9 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= read_rn_load_a;
                     else if (opcode == 3'b111)
                         state <= halt;
-                    else if ({opcode, branch_condition} == 6'b001000)
+                    else if ({opcode, branch_condition} == 6'b001000) // B
                         state <= compute_branch_pc;
-                    else if ({opcode, branch_condition} == 6'b001001)
+                    else if ({opcode, branch_condition} == 6'b001001) 
                         state <= BEQ;
                     else if ({opcode, branch_condition} == 6'b001010)
                         state <= BNE;
@@ -125,6 +126,10 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= BLT;
                     else if ({opcode, branch_condition} == 6'b001100)
                         state <= BLE;
+                    else if ({opcode, op} == 5'b01011)
+                        state <= BL; 
+                    else if ({opcode, op} == 5'b01000) // BX
+                        state <= read_rd_load_b; 
                     else 
                         state <= read_rm_load_b;
                 end
@@ -237,17 +242,22 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 begin
                     nsel <= 3'b010;
                     loadb <= 1;
-                    load_addr <= 0; 
+                    load_addr <= 0;
+                    if ({opcode, op} == 5'b01000)
+                        vsel <= 2'b11; 
                     state <= b_to_output;
                 end
 
                 b_to_output: // At this cycle, b is updated with the value in Rd. 
                 begin
                     loadb <= 0;
-                    asel <= 2'b01;
+                    asel <= 2'b01; // Select 16'b0 at Mux A, such that B is delivered directly to C. 
                     bsel <= 2'b0;
                     loadc <= 1;
-                    state <= write_mem;
+                    if ({opcode, op} == 5'b01000)
+                        state <= reload_branch_pc;
+                    else 
+                        state <= write_mem;
                 end
 
                 write_mem: // At this cycle, c is updaetd with the value in Rd. write_data to the memory is ready. At the same time we set addr_sel to 0 to provide the write address. And set mem_cmd to 2'b00 indicating a write. 
@@ -267,6 +277,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                 
                 compute_branch_pc: 
                 begin
+                    write <= 0;
                     asel <= 2'b10;
                     bsel <= 2'b10; 
                     state <= update_branch_pc;
@@ -288,6 +299,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
 
                 dummy2:
                 begin
+                    load_pc <= 0; 
                     state <= if1; 
                 end
 
@@ -321,6 +333,14 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= compute_branch_pc;
                     else 
                         state <= if1; 
+                end
+
+                BL:
+                begin
+                    vsel <= 2'b11;
+                    write <= 1;
+                    nsel <= 3'b001; 
+                    state <= compute_branch_pc;
                 end
 
             endcase 

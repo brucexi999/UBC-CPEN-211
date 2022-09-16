@@ -18,16 +18,25 @@ module tb_fsm (
     end
     
     initial begin
-        rst = 1; #20;
+        /*rst = 1; #20;
         rst = 0; opcode = 3'b001; branch_condition = 3'b0; #100; // B (unconditioned)
         
         rst = 1; #20;
         rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 1; #150; // BEQ
 
         rst = 1; #20;
-        rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 0; #150; // BEQ
+        rst = 0; opcode = 3'b001; branch_condition = 3'b001; Z= 0; #150; // BEQ*/
 
         // BNE passed. 
+
+        rst = 1; #20;
+        rst = 0; opcode = 3'b010; op = 2'b11; #200; // BL
+
+        rst = 1; #20;
+        rst = 0; opcode = 3'b010; op = 2'b0; #200; // BL
+
+
+
         $stop; 
     end
 
