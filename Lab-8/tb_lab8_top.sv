@@ -1,5 +1,5 @@
 `timescale 1ps/1ps
-module tb_lab8_top_ps ();
+module tb_lab8_top ();
     logic [3:0] KEY;
     logic [9:0] SW;
     logic [9:0] LEDR;

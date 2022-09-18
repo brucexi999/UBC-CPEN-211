@@ -1,12 +1,11 @@
-module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc);
+module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, write, vsel, nsel, load_pc, load_ir, addr_sel, mem_cmd, load_addr, Z, V, N, branch_condition, sel_pc, ALUop_zero);
     input clk, rst;
     input [2:0] opcode, branch_condition;
     input [1:0] op;
     input Z, V, N; 
-    output logic w, loada, loadb, loadc, loads, write, load_pc, load_ir, addr_sel, load_addr;
+    output logic w, loada, loadb, loadc, loads, write, load_pc, load_ir, addr_sel, load_addr, ALUop_zero;
     output logic [2:0] nsel;
     output logic [1:0] vsel, mem_cmd, asel, bsel, sel_pc;
-    // The state machine that supports --6-- instruction.
     enum {
         // Instruction 1
         decode,
@@ -63,6 +62,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     addr_sel <= 0;
                     write <= 0; 
                     w <= 0;
+                    ALUop_zero <= 0; 
                     sel_pc <= 2'b0;
                     load_pc <= 1;
                     load_ir <= 0;
@@ -83,6 +83,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                     nsel <= 3'b0; 
                     write <= 0; 
                     w <= 0;
+                    ALUop_zero <= 0; 
                     sel_pc <= 2'b01;
                     load_pc <= 0; 
                     addr_sel <= 1;
@@ -118,7 +119,7 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= halt;
                     else if ({opcode, branch_condition} == 6'b001000) // B
                         state <= compute_branch_pc;
-                    else if ({opcode, branch_condition} == 6'b001001) 
+                    else if ({opcode, branch_condition} == 6'b001001)
                         state <= BEQ;
                     else if ({opcode, branch_condition} == 6'b001010)
                         state <= BNE;
@@ -335,11 +336,12 @@ module FSM (clk, rst, w, opcode, op, loada, loadb, loadc, asel, bsel, loads, wri
                         state <= if1; 
                 end
 
-                BL:
+                BL: // Save PC+1 to r7
                 begin
-                    vsel <= 2'b11;
+                    vsel <= 2'b11; // Select PC for datapath input. 
                     write <= 1;
-                    nsel <= 3'b001; 
+                    nsel <= 3'b001; // Select to write Rd. 
+                    ALUop_zero <= 1;
                     state <= compute_branch_pc;
                 end
 

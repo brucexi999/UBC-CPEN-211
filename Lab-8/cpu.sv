@@ -8,10 +8,10 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 	output logic [127:0] reg_out; 
 
 	logic [15:0] ins_out;
-	logic [1:0] ALUop, shift, op, vsel, sel_pc, asel, bsel;
+	logic [1:0] ALUop, shift, op, vsel, sel_pc, asel, bsel, ALUop_dp;
 	logic [15:0] sximm5, sximm8;
 	logic [2:0] readnum, writenum, opcode, nsel, branch_condition;
-	logic loada, loadb, loadc, loads, write, load_pc, load_ir, addr_sel, load_addr;
+	logic loada, loadb, loadc, loads, write, load_pc, load_ir, addr_sel, load_addr, ALUop_zero;
 	logic [8:0] pc_out, next_pc, data_addr_out, data_addr_in; 
 
 	// The instruction register.
@@ -63,7 +63,8 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 		.V (V), 
 		.N (N), 
 		.branch_condition (branch_condition),
-		.sel_pc (sel_pc)
+		.sel_pc (sel_pc),
+		.ALUop_zero (ALUop_zero)
 	);
 
 	// The datapath. 
@@ -76,7 +77,7 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 		.shift (shift),
 		.asel (asel),
 		.bsel (bsel),
-		.ALUop (ALUop),
+		.ALUop (ALUop_dp),
 		.loadc (loadc),
 		.loads (loads),
 		.writenum (writenum),
@@ -120,6 +121,15 @@ module CPU (clk, reset, in, out, N, V, Z, w, mem_cmd, mem_addr, reg_out);
 	always_ff @ (posedge clk) begin
 		if (load_addr)
 			data_addr_out <= data_addr_in; 
+	end
+
+	// ALUop Mux
+	always_comb begin: ALUop_Mux
+		case (ALUop_zero)
+			1'b0: ALUop_dp = ALUop;
+			1'b1: ALUop_dp = 2'b0; 
+			default: ALUop_dp = 2'bz; 
+		endcase
 	end
 
 	
