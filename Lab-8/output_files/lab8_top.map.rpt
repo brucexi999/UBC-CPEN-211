@@ -1,0 +1,1179 @@
+Analysis & Synthesis report for lab8_top
+Sat Sep 17 20:33:51 2022
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Registers Packed Into Inferred Megafunctions
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for RAM:ram|altsyncram:mem_rtl_0|altsyncram_75r1:auto_generated
+ 14. Parameter Settings for User Entity Instance: Tristate:tri_drv_2
+ 15. Parameter Settings for User Entity Instance: reg_load:REG
+ 16. Parameter Settings for User Entity Instance: Tristate:tri_drv_1
+ 17. Parameter Settings for User Entity Instance: CPU:cpu|reg_load:ins_reg
+ 18. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec1
+ 19. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec2
+ 20. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[0].Reg
+ 21. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[1].Reg
+ 22. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[2].Reg
+ 23. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[3].Reg
+ 24. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[4].Reg
+ 25. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[5].Reg
+ 26. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[6].Reg
+ 27. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[7].Reg
+ 28. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|mux_8in:Mux
+ 29. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_A
+ 30. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_B
+ 31. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_C
+ 32. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_S
+ 33. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf
+ 34. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:as
+ 35. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:ai
+ 36. Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|decoder:dec
+ 37. Parameter Settings for User Entity Instance: RAM:ram
+ 38. Parameter Settings for Inferred Entity Instance: RAM:ram|altsyncram:mem_rtl_0
+ 39. altsyncram Parameter Settings by Entity Instance
+ 40. Port Connectivity Checks: "CPU:cpu"
+ 41. Port Connectivity Checks: "Tristate:tri_drv_2"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat Sep 17 20:33:51 2022       ;
+; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                   ; lab8_top                                    ;
+; Top-level Entity Name           ; lab8_top                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 248                                         ;
+; Total pins                      ; 66                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 4,096                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; lab8_top           ; lab8_top           ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                 ; Library ;
++------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+; tristate.sv                        ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/tristate.sv                                            ;         ;
+; shifter.sv                         ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/shifter.sv                                             ;         ;
+; regfile.sv                         ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/regfile.sv                                             ;         ;
+; reg_load.sv                        ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/reg_load.sv                                            ;         ;
+; ram.sv                             ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/ram.sv                                                 ;         ;
+; mux_8in.sv                         ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/mux_8in.sv                                             ;         ;
+; Multi_bit_adder.sv                 ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv                                     ;         ;
+; lab8_top.sv                        ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/lab8_top.sv                                            ;         ;
+; Ins_Dec.sv                         ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv                                             ;         ;
+; fsm.sv                             ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/fsm.sv                                                 ;         ;
+; decoder.sv                         ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/decoder.sv                                             ;         ;
+; datapath.sv                        ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/datapath.sv                                            ;         ;
+; cpu.sv                             ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/cpu.sv                                                 ;         ;
+; alu.sv                             ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/alu.sv                                                 ;         ;
+; Add_Sub_Ovf.sv                     ; yes             ; User SystemVerilog HDL File                           ; D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv                                         ;         ;
+; altsyncram.tdf                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                        ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal191.inc                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc        ;         ;
+; a_rdenreg.inc                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_75r1.tdf             ; yes             ; Auto-Generated Megafunction                           ; D:/UBC-CPEN-211/Lab-8/db/altsyncram_75r1.tdf                                 ;         ;
+; db/lab8_top.ram0_RAM_15119.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/UBC-CPEN-211/Lab-8/db/lab8_top.ram0_RAM_15119.hdl.mif                     ;         ;
++------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 220          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 333          ;
+;     -- 7 input functions                    ; 3            ;
+;     -- 6 input functions                    ; 83           ;
+;     -- 5 input functions                    ; 68           ;
+;     -- 4 input functions                    ; 107          ;
+;     -- <=3 input functions                  ; 72           ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 248          ;
+;                                             ;              ;
+; I/O pins                                    ; 66           ;
+; Total MLAB memory bits                      ; 0            ;
+; Total block memory bits                     ; 4096         ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 264          ;
+; Total fan-out                               ; 2537         ;
+; Average fan-out                             ; 3.48         ;
++---------------------------------------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                   ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                             ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
+; |lab8_top                                 ; 333 (24)            ; 248 (0)                   ; 4096              ; 0          ; 66   ; 0            ; |lab8_top                                                                       ; lab8_top        ; work         ;
+;    |CPU:cpu|                              ; 281 (20)            ; 240 (18)                  ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu                                                               ; CPU             ; work         ;
+;       |Datapath:datapath|                 ; 198 (59)            ; 179 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath                                             ; Datapath        ; work         ;
+;          |alu:ALU|                        ; 62 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU                                     ; alu             ; work         ;
+;             |AddSubOvf:add_sub_ovf|       ; 19 (2)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf               ; AddSubOvf       ; work         ;
+;                |Mubi_adder:ai|            ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:ai ; Mubi_adder      ; work         ;
+;                |Mubi_adder:as|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:as ; Mubi_adder      ; work         ;
+;             |decoder:dec|                 ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU|decoder:dec                         ; decoder         ; work         ;
+;          |reg_load:REG_A|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|reg_load:REG_A                              ; reg_load        ; work         ;
+;          |reg_load:REG_B|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|reg_load:REG_B                              ; reg_load        ; work         ;
+;          |reg_load:REG_C|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|reg_load:REG_C                              ; reg_load        ; work         ;
+;          |reg_load:REG_S|                 ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|reg_load:REG_S                              ; reg_load        ; work         ;
+;          |regfile:RF|                     ; 77 (8)              ; 128 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF                                  ; regfile         ; work         ;
+;             |decoder:Dec2|                ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec2                     ; decoder         ; work         ;
+;             |mux_8in:Mux|                 ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|mux_8in:Mux                      ; mux_8in         ; work         ;
+;             |reg_load:Regs[0].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[0].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[1].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[1].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[2].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[2].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[3].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[3].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[4].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[4].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[5].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[5].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[6].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[6].Reg             ; reg_load        ; work         ;
+;             |reg_load:Regs[7].Reg|        ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[7].Reg             ; reg_load        ; work         ;
+;       |FSM:fsm|                           ; 60 (60)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|FSM:fsm                                                       ; FSM             ; work         ;
+;       |Ins_Dec:ins_dec|                   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|Ins_Dec:ins_dec                                               ; Ins_Dec         ; work         ;
+;       |reg_load:ins_reg|                  ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|CPU:cpu|reg_load:ins_reg                                              ; reg_load        ; work         ;
+;    |RAM:ram|                              ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab8_top|RAM:ram                                                               ; RAM             ; work         ;
+;       |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab8_top|RAM:ram|altsyncram:mem_rtl_0                                          ; altsyncram      ; work         ;
+;          |altsyncram_75r1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab8_top|RAM:ram|altsyncram:mem_rtl_0|altsyncram_75r1:auto_generated           ; altsyncram_75r1 ; work         ;
+;    |reg_load:REG|                         ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|reg_load:REG                                                          ; reg_load        ; work         ;
+;    |sseg:H0|                              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|sseg:H0                                                               ; sseg            ; work         ;
+;    |sseg:H1|                              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|sseg:H1                                                               ; sseg            ; work         ;
+;    |sseg:H2|                              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|sseg:H2                                                               ; sseg            ; work         ;
+;    |sseg:H3|                              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab8_top|sseg:H3                                                               ; sseg            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                         ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+; Name                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+; RAM:ram|altsyncram:mem_rtl_0|altsyncram_75r1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; db/lab8_top.ram0_RAM_15119.hdl.mif ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; CPU:cpu|FSM:fsm|state[5..9,11..31]     ; Merged with CPU:cpu|FSM:fsm|state[10]  ;
+; CPU:cpu|FSM:fsm|bsel[1]                ; Merged with CPU:cpu|FSM:fsm|asel[1]    ;
+; CPU:cpu|FSM:fsm|state[10]              ; Stuck at GND due to stuck port data_in ;
+; CPU:cpu|FSM:fsm|nsel[0]                ; Lost fanout                            ;
+; Total Number of Removed Registers = 29 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 248   ;
+; Number of registers using Synchronous Clear  ; 13    ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 243   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions   ;
++---------------------+-------------------+------+
+; Register Name       ; Megafunction      ; Type ;
++---------------------+-------------------+------+
+; RAM:ram|dout[0..15] ; RAM:ram|mem_rtl_0 ; RAM  ;
++---------------------+-------------------+------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |lab8_top|CPU:cpu|pc_out[6]                       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux68         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux50         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux6          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux17         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Ins_Dec:ins_dec|Mux0            ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux24         ;
+; 6:1                ; 10 bits   ; 40 LEs        ; 30 LEs               ; 10 LEs                 ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|Mux40         ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab8_top|CPU:cpu|Datapath:datapath|alu:ALU|Mux15 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Source assignments for RAM:ram|altsyncram:mem_rtl_0|altsyncram_75r1:auto_generated ;
++---------------------------------+--------------------+------+----------------------+
+; Assignment                      ; Value              ; From ; To                   ;
++---------------------------------+--------------------+------+----------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                    ;
++---------------------------------+--------------------+------+----------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Tristate:tri_drv_2 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; n              ; 16    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: reg_load:REG ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 8     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Tristate:tri_drv_1 ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; n              ; 16    ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|reg_load:ins_reg ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 16    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec1 ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; n              ; 3     ; Signed Integer                                                        ;
+; m              ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec2 ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; n              ; 3     ; Signed Integer                                                        ;
+; m              ; 8     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[0].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[1].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[2].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[3].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[4].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[5].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[6].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|reg_load:Regs[7].Reg ;
++----------------+-------+-------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                          ;
++----------------+-------+-------------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                                ;
++----------------+-------+-------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|regfile:RF|mux_8in:Mux ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; k              ; 16    ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_A ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_B ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_C ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|reg_load:REG_S ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; n              ; 3     ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:as ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; n              ; 1     ; Signed Integer                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:ai ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+; n              ; 15    ; Signed Integer                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CPU:cpu|Datapath:datapath|alu:ALU|decoder:dec ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; n              ; 2     ; Signed Integer                                                    ;
+; m              ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:ram ;
++----------------+-----------+-------------------------+
+; Parameter Name ; Value     ; Type                    ;
++----------------+-----------+-------------------------+
+; data_width     ; 16        ; Signed Integer          ;
+; addr_width     ; 8         ; Signed Integer          ;
+; filename       ; data1.txt ; String                  ;
++----------------+-----------+-------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: RAM:ram|altsyncram:mem_rtl_0            ;
++------------------------------------+------------------------------------+----------------+
+; Parameter Name                     ; Value                              ; Type           ;
++------------------------------------+------------------------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                  ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                                 ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                                 ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                                  ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT                          ; Untyped        ;
+; WIDTH_A                            ; 16                                 ; Untyped        ;
+; WIDTHAD_A                          ; 8                                  ; Untyped        ;
+; NUMWORDS_A                         ; 256                                ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED                       ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                               ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                               ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                               ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                               ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                               ; Untyped        ;
+; WIDTH_B                            ; 16                                 ; Untyped        ;
+; WIDTHAD_B                          ; 8                                  ; Untyped        ;
+; NUMWORDS_B                         ; 256                                ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1                             ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                             ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1                             ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0                             ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED                       ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1                             ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                               ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                               ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                               ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                               ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                               ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                               ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                                  ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                                  ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                               ; Untyped        ;
+; BYTE_SIZE                          ; 8                                  ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                           ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ               ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ               ; Untyped        ;
+; INIT_FILE                          ; db/lab8_top.ram0_RAM_15119.hdl.mif ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A                             ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                                  ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                             ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                    ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                    ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                              ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                              ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                                  ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone V                          ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_75r1                    ; Untyped        ;
++------------------------------------+------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                         ;
++-------------------------------------------+------------------------------+
+; Name                                      ; Value                        ;
++-------------------------------------------+------------------------------+
+; Number of entity instances                ; 1                            ;
+; Entity Instance                           ; RAM:ram|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                    ;
+;     -- WIDTH_A                            ; 16                           ;
+;     -- NUMWORDS_A                         ; 256                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                 ;
+;     -- WIDTH_B                            ; 16                           ;
+;     -- NUMWORDS_B                         ; 256                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                     ;
++-------------------------------------------+------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:cpu"                                                                               ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; reg_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "Tristate:tri_drv_2" ;
++-----------+-------+----------+-----------------+
+; Port      ; Type  ; Severity ; Details         ;
++-----------+-------+----------+-----------------+
+; in[15..8] ; Input ; Info     ; Stuck at GND    ;
++-----------+-------+----------+-----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 248                         ;
+;     ENA               ; 234                         ;
+;     ENA SCLR SLD      ; 9                           ;
+;     SCLR              ; 4                           ;
+;     SLD               ; 1                           ;
+; arriav_lcell_comb     ; 342                         ;
+;     arith             ; 9                           ;
+;         1 data inputs ; 9                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 314                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 41                          ;
+;         4 data inputs ; 93                          ;
+;         5 data inputs ; 68                          ;
+;         6 data inputs ; 83                          ;
+;     shared            ; 16                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 1                           ;
+;         4 data inputs ; 14                          ;
+; boundary_port         ; 66                          ;
+; stratixv_ram_block    ; 16                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.50                        ;
+; Average LUT depth     ; 3.32                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Sat Sep 17 20:33:41 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab8_top -c lab8_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tristate.sv
+    Info (12023): Found entity 1: Tristate File: D:/UBC-CPEN-211/Lab-8/tristate.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file shifter.sv
+    Info (12023): Found entity 1: shifter File: D:/UBC-CPEN-211/Lab-8/shifter.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
+    Info (12023): Found entity 1: regfile File: D:/UBC-CPEN-211/Lab-8/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file reg_load.sv
+    Info (12023): Found entity 1: reg_load File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram.sv
+    Info (12023): Found entity 1: RAM File: D:/UBC-CPEN-211/Lab-8/ram.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_8in.sv
+    Info (12023): Found entity 1: mux_8in File: D:/UBC-CPEN-211/Lab-8/mux_8in.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multi_bit_adder.sv
+    Info (12023): Found entity 1: Mubi_adder File: D:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file lab8_top.sv
+    Info (12023): Found entity 1: lab8_top File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 1
+    Info (12023): Found entity 2: sseg File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 70
+Info (12021): Found 1 design units, including 1 entities, in source file ins_dec.sv
+    Info (12023): Found entity 1: Ins_Dec File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.sv
+    Info (12023): Found entity 1: FSM File: D:/UBC-CPEN-211/Lab-8/fsm.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file dishex.sv
+    Info (12023): Found entity 1: dishex File: D:/UBC-CPEN-211/Lab-8/dishex.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decoder.sv
+    Info (12023): Found entity 1: decoder File: D:/UBC-CPEN-211/Lab-8/decoder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
+    Info (12023): Found entity 1: Datapath File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.sv
+    Info (12023): Found entity 1: CPU File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file add_sub_ovf.sv
+    Info (12023): Found entity 1: AddSubOvf File: D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv Line: 1
+Info (12127): Elaborating entity "lab8_top" for the top level hierarchy
+Info (12128): Elaborating entity "Tristate" for hierarchy "Tristate:tri_drv_2" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 18
+Info (12128): Elaborating entity "reg_load" for hierarchy "reg_load:REG" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 25
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:cpu" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 46
+Info (12128): Elaborating entity "reg_load" for hierarchy "CPU:cpu|reg_load:ins_reg" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 23
+Info (12128): Elaborating entity "Ins_Dec" for hierarchy "CPU:cpu|Ins_Dec:ins_dec" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 38
+Info (10264): Verilog HDL Case Statement information at Ins_Dec.sv(28): all case item expressions in this case statement are onehot File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 28
+Info (12128): Elaborating entity "FSM" for hierarchy "CPU:cpu|FSM:fsm" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 68
+Info (12128): Elaborating entity "Datapath" for hierarchy "CPU:cpu|Datapath:datapath" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 92
+Info (12128): Elaborating entity "regfile" for hierarchy "CPU:cpu|Datapath:datapath|regfile:RF" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 28
+Info (12128): Elaborating entity "decoder" for hierarchy "CPU:cpu|Datapath:datapath|regfile:RF|decoder:Dec1" File: D:/UBC-CPEN-211/Lab-8/regfile.sv Line: 9
+Warning (10230): Verilog HDL assignment warning at decoder.sv(8): truncated value with size 32 to match size of target (8) File: D:/UBC-CPEN-211/Lab-8/decoder.sv Line: 8
+Info (12128): Elaborating entity "mux_8in" for hierarchy "CPU:cpu|Datapath:datapath|regfile:RF|mux_8in:Mux" File: D:/UBC-CPEN-211/Lab-8/regfile.sv Line: 31
+Info (12128): Elaborating entity "reg_load" for hierarchy "CPU:cpu|Datapath:datapath|reg_load:REG_S" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 34
+Info (12128): Elaborating entity "shifter" for hierarchy "CPU:cpu|Datapath:datapath|shifter:SF" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 37
+Info (12128): Elaborating entity "alu" for hierarchy "CPU:cpu|Datapath:datapath|alu:ALU" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 60
+Info (10264): Verilog HDL Case Statement information at alu.sv(26): all case item expressions in this case statement are onehot File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 26
+Info (12128): Elaborating entity "AddSubOvf" for hierarchy "CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf" File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 16
+Info (12128): Elaborating entity "Mubi_adder" for hierarchy "CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:as" File: D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv Line: 11
+Info (12128): Elaborating entity "Mubi_adder" for hierarchy "CPU:cpu|Datapath:datapath|alu:ALU|AddSubOvf:add_sub_ovf|Mubi_adder:ai" File: D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv Line: 12
+Info (12128): Elaborating entity "decoder" for hierarchy "CPU:cpu|Datapath:datapath|alu:ALU|decoder:dec" File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 23
+Warning (10230): Verilog HDL assignment warning at decoder.sv(8): truncated value with size 32 to match size of target (4) File: D:/UBC-CPEN-211/Lab-8/decoder.sv Line: 8
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:ram" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 55
+Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 61
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13048): Converted tri-state node "read_data[15]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[14]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[13]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[12]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[11]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[10]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[9]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[8]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[7]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[6]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[5]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[4]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[3]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[2]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[1]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13048): Converted tri-state node "read_data[0]" into a selector File: D:/UBC-CPEN-211/Lab-8/reg_load.sv Line: 8
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[0]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[1]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[2]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[3]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[4]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[5]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[6]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[7]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|next_pc[8]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 15
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[0]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[1]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[2]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[3]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[4]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[5]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[6]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[7]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[8]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[9]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[10]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[11]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[12]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[13]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[14]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Bin[15]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[0]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[1]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[2]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[3]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[4]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[5]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[6]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[7]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[8]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[9]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[10]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[11]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[12]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[13]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[14]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|Ain[15]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 13
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[0]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[1]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[2]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[3]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[4]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[5]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[6]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[7]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[8]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[9]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[10]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[11]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[12]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[13]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[14]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Datapath:datapath|alu:ALU|out[15]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 4
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Ins_Dec:ins_dec|readnum[0]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 7
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Ins_Dec:ins_dec|readnum[1]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 7
+    Warning (13049): Converted tri-state buffer "CPU:cpu|Ins_Dec:ins_dec|readnum[2]" feeding internal logic into a wire File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 7
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "RAM:ram|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/lab8_top.ram0_RAM_15119.hdl.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "RAM:ram|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "RAM:ram|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/lab8_top.ram0_RAM_15119.hdl.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_75r1.tdf
+    Info (12023): Found entity 1: altsyncram_75r1 File: D:/UBC-CPEN-211/Lab-8/db/altsyncram_75r1.tdf Line: 28
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 4
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 184 assignments for entity "DE1_SoC" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ODT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ODT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+Info (144001): Generated suppressed messages file D:/UBC-CPEN-211/Lab-8/output_files/lab8_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[2]" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 2
+    Warning (15610): No output dependent on input pin "KEY[3]" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 2
+    Warning (15610): No output dependent on input pin "SW[8]" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 3
+    Warning (15610): No output dependent on input pin "SW[9]" File: D:/UBC-CPEN-211/Lab-8/lab8_top.sv Line: 3
+Info (21057): Implemented 613 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 14 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 531 logic cells
+    Info (21064): Implemented 16 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 283 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Sat Sep 17 20:33:51 2022
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/UBC-CPEN-211/Lab-8/output_files/lab8_top.map.smsg.
+
+

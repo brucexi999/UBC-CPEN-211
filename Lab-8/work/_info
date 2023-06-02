@@ -1,0 +1,547 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/19.1
+vAddSubOvf
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1663042246
+!i10b 1
+!s100 QNZY[8J_7ciSRbJi15JIQ2
+IH<bY`5i0]cT74deXhVl>D2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 Add_Sub_Ovf_sv_unit
+S1
+Z3 dD:/UBC-CPEN-211/Lab-8
+w1656873181
+8D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv
+FD:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1663042246.000000
+!s107 D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/Add_Sub_Ovf.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+n@add@sub@ovf
+valu
+R0
+R1
+!i10b 1
+!s100 A_1zCoz760DP=CFJ``?>33
+IAL<=lX3W6BW?g`YJeJ]5Q0
+R2
+!s105 alu_sv_unit
+S1
+R3
+w1656894367
+8D:/UBC-CPEN-211/Lab-8/alu.sv
+FD:/UBC-CPEN-211/Lab-8/alu.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/alu.sv|
+!i113 1
+R6
+R7
+vCPU
+R0
+Z8 !s110 1663471306
+!i10b 1
+!s100 3<ToHfFQdC[FoKR^YiQ^:0
+I7f7I<1dNS?EmF_h7oChEz2
+R2
+!s105 cpu_sv_unit
+S1
+R3
+w1663471272
+8D:/UBC-CPEN-211/Lab-8/cpu.sv
+FD:/UBC-CPEN-211/Lab-8/cpu.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z9 !s108 1663471306.000000
+!s107 D:/UBC-CPEN-211/Lab-8/cpu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/cpu.sv|
+!i113 1
+R6
+R7
+n@c@p@u
+vDatapath
+R0
+!s110 1663303018
+!i10b 1
+!s100 Ohzb23]5dXk_eZ>X6RTkE2
+IGY[[7WL5Sc5k?SFD^MNUY1
+R2
+!s105 datapath_sv_unit
+S1
+R3
+w1663292327
+8D:/UBC-CPEN-211/Lab-8/datapath.sv
+FD:/UBC-CPEN-211/Lab-8/datapath.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z10 !s108 1663303018.000000
+!s107 D:/UBC-CPEN-211/Lab-8/datapath.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/datapath.sv|
+!i113 1
+R6
+R7
+n@datapath
+vdecoder
+R0
+R1
+!i10b 1
+!s100 lT1MH=9M`Cb@=Z:Vn[iHK3
+Ij`^f0hJicPckMGMd:z49O3
+R2
+!s105 decoder_sv_unit
+S1
+R3
+w1655143707
+8D:/UBC-CPEN-211/Lab-8/decoder.sv
+FD:/UBC-CPEN-211/Lab-8/decoder.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/decoder.sv|
+!i113 1
+R6
+R7
+vdishex
+R0
+R1
+!i10b 1
+!s100 L`FomfU`iWOU=z;]>ke@_3
+IGYVE6az8K4ih_KZG>D0nJ3
+R2
+!s105 dishex_sv_unit
+S1
+R3
+w1655688705
+8D:/UBC-CPEN-211/Lab-8/dishex.sv
+FD:/UBC-CPEN-211/Lab-8/dishex.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/dishex.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/dishex.sv|
+!i113 1
+R6
+R7
+vFSM
+R0
+R8
+!i10b 1
+!s100 k1;AVNk]kX6NiDS[PYV852
+I9BhBDa3?@S80POCaFfCzE0
+R2
+!s105 fsm_sv_unit
+S1
+R3
+w1663471032
+8D:/UBC-CPEN-211/Lab-8/fsm.sv
+FD:/UBC-CPEN-211/Lab-8/fsm.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R9
+!s107 D:/UBC-CPEN-211/Lab-8/fsm.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/fsm.sv|
+!i113 1
+R6
+R7
+n@f@s@m
+vIns_Dec
+R0
+R1
+!i10b 1
+!s100 8C6`ODXd<SCz?G>k_I?Hn2
+I]7_Y4g^OC1dTSoWQJYiEi2
+R2
+!s105 Ins_Dec_sv_unit
+S1
+R3
+w1662450301
+8D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv
+FD:/UBC-CPEN-211/Lab-8/Ins_Dec.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv|
+!i113 1
+R6
+R7
+n@ins_@dec
+vlab8_top
+R0
+Z11 !s110 1663045578
+!i10b 1
+!s100 @baUzfojomA?ObU=;XZUl2
+I5dSn3:DWgf0A[RQYznII?1
+R2
+Z12 !s105 lab8_top_sv_unit
+S1
+R3
+Z13 w1663045463
+Z14 8D:/UBC-CPEN-211/Lab-8/lab8_top.sv
+Z15 FD:/UBC-CPEN-211/Lab-8/lab8_top.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z16 !s108 1663045578.000000
+Z17 !s107 D:/UBC-CPEN-211/Lab-8/lab8_top.sv|
+Z18 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/lab8_top.sv|
+!i113 1
+R6
+R7
+vMubi_adder
+R0
+R1
+!i10b 1
+!s100 JBa3ak1SZVh?>nG0PL@:G1
+IRbOc[36ObX@m[TMo5OoOm1
+R2
+!s105 Multi_bit_adder_sv_unit
+S1
+R3
+w1656872155
+8D:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv
+FD:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/Multi_bit_adder.sv|
+!i113 1
+R6
+R7
+n@mubi_adder
+vmux_8in
+R0
+R1
+!i10b 1
+!s100 Tb^HKk=J2RVSL2BY=hWJO3
+I]_6UAh6Ag8Cc1YJjn_biz3
+R2
+!s105 mux_8in_sv_unit
+S1
+R3
+w1655239138
+8D:/UBC-CPEN-211/Lab-8/mux_8in.sv
+FD:/UBC-CPEN-211/Lab-8/mux_8in.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/mux_8in.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/mux_8in.sv|
+!i113 1
+R6
+R7
+vRAM
+R0
+R1
+!i10b 1
+!s100 ;gkYKMiTRZIj>[WM<bMIZ2
+Ih]1ih[V?W3LT@OYb@2KBA0
+R2
+!s105 ram_sv_unit
+S1
+R3
+w1660501633
+8D:/UBC-CPEN-211/Lab-8/ram.sv
+FD:/UBC-CPEN-211/Lab-8/ram.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/ram.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/ram.sv|
+!i113 1
+R6
+R7
+n@r@a@m
+vreg_load
+R0
+R1
+!i10b 1
+!s100 3RHJGXGFCCF>P=H6iA>@Q2
+I=fO318V?;cW;bD`=05BSF3
+R2
+!s105 reg_load_sv_unit
+S1
+R3
+w1655146626
+8D:/UBC-CPEN-211/Lab-8/reg_load.sv
+FD:/UBC-CPEN-211/Lab-8/reg_load.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/reg_load.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/reg_load.sv|
+!i113 1
+R6
+R7
+vregfile
+R0
+R11
+!i10b 1
+!s100 j1>LU_RDBP;E>`X?M7C[G3
+IzVOkd<P>OH;IbB`PFTIKK0
+R2
+!s105 regfile_sv_unit
+S1
+R3
+w1663045131
+8D:/UBC-CPEN-211/Lab-8/regfile.sv
+FD:/UBC-CPEN-211/Lab-8/regfile.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R16
+!s107 D:/UBC-CPEN-211/Lab-8/regfile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/regfile.sv|
+!i113 1
+R6
+R7
+vshifter
+R0
+R1
+!i10b 1
+!s100 Y@k5_<Eh6FO<^i?^GnL041
+ID:kGL3A6[]1Agg7<h<n_E2
+R2
+!s105 shifter_sv_unit
+S1
+R3
+w1655617109
+8D:/UBC-CPEN-211/Lab-8/shifter.sv
+FD:/UBC-CPEN-211/Lab-8/shifter.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/UBC-CPEN-211/Lab-8/shifter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/shifter.sv|
+!i113 1
+R6
+R7
+vsseg
+R0
+R11
+!i10b 1
+!s100 O:8j0NX4[LLMhcdmDW:=o2
+IglbfimC=jU0eOB]@C2a040
+R2
+R12
+S1
+R3
+R13
+R14
+R15
+L0 70
+R4
+r1
+!s85 0
+31
+R16
+R17
+R18
+!i113 1
+R6
+R7
+vtb_CPU
+R0
+!s110 1663304144
+!i10b 1
+!s100 `b`Bm4NTHeVb_<7ToE8VE1
+I@dh3Y:>2Z^X8Ed17fo]581
+R2
+!s105 tb_cpu_sv_unit
+S1
+R3
+w1663304140
+8D:/UBC-CPEN-211/Lab-8/tb_cpu.sv
+FD:/UBC-CPEN-211/Lab-8/tb_cpu.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1663304144.000000
+!s107 D:/UBC-CPEN-211/Lab-8/tb_cpu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/tb_cpu.sv|
+!i113 1
+R6
+R7
+ntb_@c@p@u
+vtb_datapath
+R0
+Z19 !s110 1663042247
+!i10b 1
+!s100 GQ<a:Ud1]>c8>amV^=^0U0
+IlFdMF<C;O;]`e@;zMaC0C3
+R2
+!s105 tb_datapath_sv_unit
+S1
+R3
+w1662612783
+8D:/UBC-CPEN-211/Lab-8/tb_datapath.sv
+FD:/UBC-CPEN-211/Lab-8/tb_datapath.sv
+L0 1
+R4
+r1
+!s85 0
+31
+Z20 !s108 1663042247.000000
+!s107 D:/UBC-CPEN-211/Lab-8/tb_datapath.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/tb_datapath.sv|
+!i113 1
+R6
+R7
+vtb_fsm
+R0
+!s110 1663303019
+!i10b 1
+!s100 VBkh2;5>@KJETL6kVFK5C2
+IKN0Fm0YVCC1@kB;d0OPV]3
+R2
+!s105 tb_fsm_sv_unit
+S1
+R3
+w1663302957
+8D:/UBC-CPEN-211/Lab-8/tb_fsm.sv
+FD:/UBC-CPEN-211/Lab-8/tb_fsm.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R10
+!s107 D:/UBC-CPEN-211/Lab-8/tb_fsm.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/tb_fsm.sv|
+!i113 1
+R6
+R7
+vtb_lab8_top
+R0
+!s110 1663468442
+!i10b 1
+!s100 9k5>1<T3fER>>AlE0V@=I3
+I6E[5FXXedLK@XmYV731Kn1
+R2
+Z21 !s105 tb_lab8_top_sv_unit
+S1
+R3
+w1663468436
+Z22 8D:/UBC-CPEN-211/Lab-8/tb_lab8_top.sv
+Z23 FD:/UBC-CPEN-211/Lab-8/tb_lab8_top.sv
+L0 2
+R4
+r1
+!s85 0
+31
+!s108 1663468442.000000
+Z24 !s107 D:/UBC-CPEN-211/Lab-8/tb_lab8_top.sv|
+Z25 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/tb_lab8_top.sv|
+!i113 1
+R6
+R7
+vtb_lab8_top_ps
+R0
+!s110 1663468237
+!i10b 1
+!s100 aHjjQgah<8SzaVJW83<Eg2
+IGQ@^1^0H0@:YV7h=Bmaf>3
+R2
+R21
+S1
+R3
+w1662958429
+R22
+R23
+L0 2
+R4
+r1
+!s85 0
+31
+!s108 1663468237.000000
+R24
+R25
+!i113 1
+R6
+R7
+vTristate
+R0
+R19
+!i10b 1
+!s100 7aY^fiVeX^kAPLDKiJ70?3
+INjQ:VkOFVT?UV9J7hPJ`a2
+R2
+!s105 tristate_sv_unit
+S1
+R3
+w1659045167
+8D:/UBC-CPEN-211/Lab-8/tristate.sv
+FD:/UBC-CPEN-211/Lab-8/tristate.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R20
+!s107 D:/UBC-CPEN-211/Lab-8/tristate.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/UBC-CPEN-211/Lab-8/tristate.sv|
+!i113 1
+R6
+R7
+n@tristate

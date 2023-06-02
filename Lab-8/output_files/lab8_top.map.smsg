@@ -1,0 +1,9 @@
+Warning (10273): Verilog HDL warning at shifter.sv(12): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/shifter.sv Line: 12
+Warning (10273): Verilog HDL warning at Ins_Dec.sv(35): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/Ins_Dec.sv Line: 35
+Warning (10273): Verilog HDL warning at datapath.sv(23): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 23
+Warning (10273): Verilog HDL warning at datapath.sv(45): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 45
+Warning (10273): Verilog HDL warning at datapath.sv(55): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/datapath.sv Line: 55
+Warning (10273): Verilog HDL warning at cpu.sv(105): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 105
+Warning (10273): Verilog HDL warning at cpu.sv(114): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 114
+Warning (10273): Verilog HDL warning at cpu.sv(131): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/cpu.sv Line: 131
+Warning (10273): Verilog HDL warning at alu.sv(31): extended using "x" or "z" File: D:/UBC-CPEN-211/Lab-8/alu.sv Line: 31
