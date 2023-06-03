@@ -1,9 +1,6 @@
 .globl binary_search
 binary_search:
-// *get Numcalls from stack
-// *backup r4 on stack
-// *backup r5 on stack
-// *backup r6 on stack
+
 // r4 = middleIndex
 // r5 = NumCalls
 // r6 = numbers[middleIndex]
@@ -12,8 +9,8 @@ binary_search:
     str r7, [sp, #20]
     str r6, [sp, #16]
     str r5, [sp, #12]
-    str r4, [sp, #8]
-    str lr, [sp, #4]
+    str r4, [sp, #8] // backup registers
+    str lr, [sp, #4] // backup lr and r0 because we are doing recursive calls
     str r0, [sp, #0]
     ldr r5, [sp, #24] // get Numcalls from stack
     sub r4, r3, r2 // endIndex - startIndex
@@ -28,7 +25,6 @@ binary_search:
     b smaller // else {keyIndex = binary_search(numbers, key, middleIndex+1, endIndex, NumCalls);}
 
 greater:
-    //push {r0,lr} // we need to back up r0 because return of the recursive call will overwrite *numbers.
     sub sp, sp, #4
     str r5,[sp, #0]     // save 5th arg to stack
     sub r3, r4, #1 // middleIndex-1 -> 4th argument
