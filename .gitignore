@@ -1,5 +1,5 @@
 *.o
-*axf
+*.axf
 *.objdump
 *.srec
 *.amp

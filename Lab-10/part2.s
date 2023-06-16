@@ -1,3 +1,4 @@
+// Copied from "interrupt_example.s"
 .include    "address_map_arm.s" 
 .include    "interrupt_ID.s" 
 
@@ -78,7 +79,7 @@ UNEXPECTED: BNE     UNEXPECTED              // if not recognized, stop here
             BL      KEY_ISR                 
 EXIT_IRQ:                                   
 /* Write to the End of Interrupt Register (ICCEOIR) */
-            STR     R5, [R4, #ICCEOIR]      // write to ICCEOIR, clear interrupt from CPU interface
+            STR     R5, [R4, #ICCEOIR]      // write to ICCEOIR
 
             POP     {R0-R7, LR}             
             SUBS    PC, LR, #4              
