@@ -42,7 +42,16 @@ _start:
 
                                             // enable IRQ interrupts in the processor
             MOV     R0, #0b01010011         // IRQ unmasked, MODE = SVC
-            MSR     CPSR_c, R0              
+            MSR     CPSR_c, R0
+
+            LDR     R0, =MPCORE_PRIV_TIMER  // address load register of the timer, also the base address of timer
+            LDR     R1, =timer_load_value          // decimal value of 100 M
+            LDR     R2, [R1]
+            STR     R2, [R0]                // write the load register
+
+            MOV     R1, #7                  // set the enable and interrupt bit in the control register to 1, prescalar = 0
+            STR     R1, [R0, #0x8]          // controll register is (base + 8)
+
 IDLE:                                       
             B       IDLE                    // main program simply idles
 
@@ -73,10 +82,26 @@ SERVICE_IRQ:
             LDR     R5, [R4, #ICCIAR]       // read from ICCIAR
 
 FPGA_IRQ1_HANDLER:                          
-            CMP     R5, #KEYS_IRQ           
-UNEXPECTED: BNE     UNEXPECTED              // if not recognized, stop here
+            CMP     R5, #KEYS_IRQ
+            BEQ     KEY
+FPGA_IRQ2_HANDLER:
+            CMP     R5, #29
+            BEQ     TIMER     
+UNEXPECTED: 
+            BNE     UNEXPECTED              // if not recognized, stop here
+KEY:
+            BL      KEY_ISR
+            B       EXIT_IRQ
+TIMER:
+            LDR     R0, =timer_variable      // get the value of the global variable
+            LDR     R1, [R0]                
+            ADD     R1, R1, #1              // increment the global variable
+            STR     R1, [R0]
+            //MOV       R1, #3
+            // notice R1 is also observable by timer ISR
+            BL      TIMER_ISR
+            B       EXIT_IRQ
 
-            BL      KEY_ISR                 
 EXIT_IRQ:                                   
 /* Write to the End of Interrupt Register (ICCEOIR) */
             STR     R5, [R4, #ICCEOIR]      // write to ICCEOIR
@@ -86,6 +111,13 @@ EXIT_IRQ:
 
 /*--- FIQ ---------------------------------------------------------------------*/
 SERVICE_FIQ:                                
-            B       SERVICE_FIQ             
+            B       SERVICE_FIQ     
+
+// the global variable used for timer TSR
+timer_variable:
+.word 0
+
+timer_load_value:
+.word 0x1FAF208 
 
 .end         
