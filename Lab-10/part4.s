@@ -59,9 +59,6 @@ _start:
             MOV     R1, #1
             STR     R1, [R0, #0x4]          // write 1 to the controll register, set RE bit to 1, to enable interrupt from JTAG UART receiver FIFO
 
-
-
-
 IDLE:                                       
             LDR     R0, =CHAR_FLAG          // read CHAR_FLAG
             LDR     R1, [R0]
@@ -78,6 +75,7 @@ IDLE:
 
             BL      PUT_JTAG
             B       IDLE
+
 PROC1:
             LDR     R4, =count              // read count
             LDR     R0, [R4]
@@ -86,7 +84,8 @@ PROC1:
             LDR     R1, =LED_BASE
             STR     R0, [R1]                // *ledr = count
             MOV     R2, #0                  // i = 0
-            MOV     R3, #255                // LARGE_NUMEBR = 255
+            LDR     R3, =large_number                // LARGE_NUMEBR = 0x00ffffff
+            LDR     R3, [R3]
 LOOP:
             CMP     R2, R3
             BLT     SMALLER                 
@@ -94,7 +93,6 @@ LOOP:
 SMALLER:
             ADD     R2, R2, #1              // i++
             B       LOOP
-
 
             
 
@@ -139,8 +137,13 @@ KEY:
             BL      KEY_ISR
             B       EXIT_IRQ
 TIMER:
+            LDR R0, =MPCORE_PRIV_TIMER
+            MOV R1, #1
+            STR R1, [R0, #0xc] // clear timer's interrput by writting 1 into the interrupt register
+
             // check process ID
             LDR     R0, =CURRENT_PID
+            LDR     R0, [R0]
             CMP     R0, #0
             BEQ     P0_SAVE
 P1_SAVE:
@@ -150,9 +153,9 @@ P1_SAVE:
 
             // ------save to PD------------
 P0_SAVE:
-            LDR     R0, =PD_ARRAY           // only r0 is overwritten, we need to get its value from the stack later
+            LDR     R0, =PD_ARRAY           
 SAVE:
-            STR     R1, [R0, #4]
+            //STR     R1, [R0, #4]
             STR     R2, [R0, #8]
             STR     R3, [R0, #12]
             STR     R6, [R0, #24]
@@ -169,16 +172,21 @@ SAVE:
             STR     R1, [R0, #64]           // save CPSR
 
             MOV     R1, #0b11010011            // supervisor mode, IRQ disabled
-            MSR     CPSR_c, R1
+            MSR     CPSR, R1
 
             STR     SP, [R0, #52]
             STR     LR, [R0, #56]
 
+            MOV     R1, #0b11010010         // interrupts masked, MODE = IRQ
+            MSR     CPSR, R1              // change to IRQ mode
+
+            LDR     R1, [SP, #4]
             LDR     R4, [SP, #16]           // restore from the ISR stack the value of R0, R4, R5 for the interrupted process
-            LDR     R5, [SP, #12]
+            LDR     R5, [SP, #20]
+            STR     R1, [R0, #4]
             STR     R4, [R0, #16]
             STR     R5, [R0, #20]
-            LDR     R1, [SP, #32]           
+            LDR     R1, [SP]           
             STR     R1, [R0]
 
             POP     {R0-R7, LR}             // adjust the stack, no impact on functionality
@@ -187,10 +195,12 @@ SAVE:
             LDR     R0, =CURRENT_PID
             LDR     R1, [R0]
             MVN     R1, R1
-            AND     R1, R1, #1  
+            AND     R1, R1, #1
+            STR     R1, [R0]
 
             // check process ID
             LDR     R0, =CURRENT_PID
+            LDR     R0, [R0]
             CMP     R0, #0
             BEQ     P0_RESTORE
 P1_RESTORE:
@@ -211,18 +221,30 @@ RESTORE:
             LDR     R11, [R0, #44]
             LDR     R12, [R0, #48]
 
-            MOV     R1, #0b11010011             // supervisor mode, IRQ disabled
-            MSR     CPSR_c, r1
+            //MOV     R1, #0b11010011            // supervisor mode, IRQ disabled
+            //MSR     CPSR, R1
 
-            LDR     SP, [R0, #52]               // restore SP and LR
-            LDR     LR, [R0, #60]               // put value of PC in the PD array into LR
+            LDR     SP, [R0, #52]
+            LDR     LR, [R0, #60]
+
+            //MOV     R1, #0b11010010         // interrupts masked, MODE = IRQ
+            //MSR     CPSR, R1              // change to IRQ mode
+
+            //MOV     R1, #0b01010011             // supervisor mode, IRQ disabled
+            //MSR     CPSR, R1
+
+            //LDR     SP, [R0, #52]               // restore SP and LR
+            //LDR     LR, [R0, #60]               // put value of PC in the PD array into LR
+
+            //MOV     R1, #0b11010010         // interrupts masked, MODE = IRQ
+            //MSR     CPSR_c, R1              // change to IRQ mode
 
             LDR     R1, [R0, #64]
             MSR     SPSR, R1                    // restore SPSR
 
             LDR     R4, =MPCORE_GIC_CPUIF   
             LDR     R5, [R4, #ICCIAR]
-            STR     R5, [R4, #ICCEOIR]          // write to ICCEOIR
+            STR     R5, [R4, #ICCEOIR]      // write to ICCEOIR
 
             LDR     R4, [R0, #16]
             LDR     R5, [R0, #20]            
@@ -283,5 +305,8 @@ PD_ARRAY:
 .word 0 // LR
 .word PROC1+4 // PC
 .word 0x53 // CPSR (0x53 means IRQ enabled, mode = SVC)
+
+large_number:
+.word 0x00ffffff
 
 .end         
